@@ -28,7 +28,6 @@ export const modifyRegistrationData = authenticatedAction
 				gender,
 				race,
 				ethnicity,
-				isEmailable,
 				university,
 				major,
 				levelOfStudy,
@@ -67,7 +66,6 @@ export const modifyRegistrationData = authenticatedAction
 				db
 					.update(userHackerData)
 					.set({
-						isEmailable,
 						university,
 						major,
 						levelOfStudy,
@@ -96,7 +94,6 @@ export const modifyRegistrationData = authenticatedAction
 				newGender: gender,
 				newRace: race,
 				newEthnicity: ethnicity,
-				newWantsToReceiveMLHEmails: isEmailable,
 				newUniversity: university,
 				newMajor: major,
 				newLevelOfStudy: levelOfStudy,

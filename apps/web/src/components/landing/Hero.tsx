@@ -184,15 +184,15 @@ export default function Hero() {
 							style={{
 								transformStyle: "preserve-3d",
 							}}
-							whileHover={{
-								transform: (event) => {
-									if (event.target instanceof HTMLElement) {
-										const rect = event.target.getBoundingClientRect()
-										return calculateRotation(mousePosition.x, mousePosition.y, rect)
-									}
-									return "none"
-								},
-							}}
+							// whileHover={{
+							// 	transform: (event) => {
+							// 		if (event.target instanceof HTMLElement) {
+							// 			const rect = event.target.getBoundingClientRect()
+							// 			return calculateRotation(mousePosition.x, mousePosition.y, rect)
+									/*}*/
+									// return "none"
+								/*},*/
+							/*}}*/
 							transition={{ type: "spring", stiffness: 400, damping: 30 }}
 						>
 							<motion.p

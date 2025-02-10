@@ -67,7 +67,6 @@ export default function RegisterFormSettings({
 		defaultValues: {
 			hackathonsAttended: originalData.hackathonsAttended,
 			dietaryRestrictions: user.dietRestrictions as any,
-			isEmailable: originalData.isEmailable,
 			accommodationNote: user.accommodationNote || "",
 			age: user.age,
 			ethnicity: user.ethnicity as any,
@@ -463,34 +462,6 @@ export default function RegisterFormSettings({
 								)}
 							/>
 						</div>
-					</FormGroupWrapper>
-					<FormGroupWrapper title="MLH">
-						<FormField
-							control={form.control}
-							name="isEmailable"
-							render={({ field }) => (
-								<FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
-									<FormControl>
-										<Checkbox
-											checked={field.value}
-											onCheckedChange={field.onChange}
-										/>
-									</FormControl>
-									<div className="space-y-1 leading-none">
-										<FormLabel>
-											I authorize MLH to send me an email
-											where I can further opt into the MLH
-											Hacker, Events, or Organizer
-											Newsletters and other communications
-											from MLH.
-										</FormLabel>
-										<FormDescription>
-											This is optional.
-										</FormDescription>
-									</div>
-								</FormItem>
-							)}
-						/>
 					</FormGroupWrapper>
 					<FormGroupWrapper title="University Info">
 						<div

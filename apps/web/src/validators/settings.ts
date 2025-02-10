@@ -85,7 +85,6 @@ export const registrationSettingsFormValidator = z.object({
 		message: "Phone number must be less than 15 characters",
 	}),
 	countryOfResidence: z.string().length(2),
-	isEmailable: z.boolean(),
 	university: z.string().min(1).max(200),
 	major: z.string().min(1).max(200),
 	schoolID: z

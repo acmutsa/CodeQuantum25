@@ -94,7 +94,7 @@ export default function FAQ() {
 				>
 					<motion.div
 						className="mb-4 inline-block"
-						animate={floatAnimation}
+						// animate={floatAnimation}
 					>
 						<CupSoda className="h-12 w-12 text-purple-600" />
 					</motion.div>
