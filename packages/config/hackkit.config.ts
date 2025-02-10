@@ -774,12 +774,12 @@ const raceOptions = [
 ];
 
 const c = {
-	hackathonName: "HackKit",
-	itteration: "I",
-	siteUrl: "https://rowdyhacks.org", // Do not have a trailing slash
-	defaultMetaDataDescription: "Your Metadata Description Here",
-	rsvpDefaultLimit: 500,
-	botName: "HackKit",
+	hackathonName: "Code Quantum",
+	itteration: "25",
+	siteUrl: "https://cqhacks.org", // Do not have a trailing slash
+	defaultMetaDataDescription: "Code Quantum",
+	rsvpDefaultLimit: 175,
+	botName: "CQBot",
 	botParticipantRole: "Participant",
 	hackathonTimezone: "America/Chicago",
 	localUniversityName: schools[0],
@@ -796,20 +796,19 @@ const c = {
 	footerLinkItems: {
 		resources: [
 			{ name: "Register", link: "/register" },
-			{ name: "FAQ", link: "/faq" },
-			{ name: "Code of Conduct", link: "https://go.rowdyhacks.org/coc" },
-			{ name: "Contact Us", link: "/contact" },
+			// { name: "Code of Conduct", link: "https://go.rowdyhacks.org/coc" },
+			// { name: "Contact Us", link: "/contact" },
 			{ name: "ACM-W", link: "https://acmutsa.org/suborg_acmw" },
 			{ name: "ACM UTSA", link: "https://acmutsa.org/" },
 		],
 		links: [
 			{
 				name: "Source Code",
-				link: "https://github.com/acmutsa/RowdyHacksX",
+				link: "github.com/acmutsa/CodeQuantum25",
 			},
 		],
 		otherHackathons: [
-			{ name: "CodeQuantum", link: "https://cqhacks.org/" },
+			{ name: "RowdyHacks", link: "https://rowdyhacks.org" },
 			{ name: "RowdyDatathon", link: "https://www.rowdydatathon.org/" },
 			{ name: "TAMUHack", link: "https://tamuhack.com/" },
 			{ name: "WEHack", link: "https://wehackutd.com/" },
@@ -852,7 +851,7 @@ const c = {
 			discordRole: "Guild E Role",
 		},
 	},
-	issueEmail: "team@rowdyhacks.org",
+	issueEmail: "team@cqhacks.org",
 	links: {
 		discord: "https://go.rowdyhacks.org/discord",
 		instagram: "https://instagram.com/rowdyhacks",
@@ -903,8 +902,8 @@ const c = {
 	noResumeProvidedURL:
 		"https://static.acmutsa.org/No%20Resume%20Provided.pdf",
 	// Come in and change this date to whenever the hackathon starts
-	startDate: new Date(new Date(2024, 1, 24).setHours(9)),
-	prettyLocation: "Location of Hackathon",
+	startDate: new Date(new Date(2025, 2, 22).setHours(9)),
+	prettyLocation: "UTSA SU Denman Ballroom",
 	roleBadges: {
 		hacker: {
 			title: "Hacker",
