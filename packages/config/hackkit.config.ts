@@ -853,18 +853,18 @@ const c = {
 	},
 	issueEmail: "team@cqhacks.org",
 	links: {
-		discord: "https://go.rowdyhacks.org/discord",
-		instagram: "https://instagram.com/rowdyhacks",
-		facebook: "https://facebook.com/rowdyhacks",
-		twitter: "https://twitter.com/rowdyhacks",
+		discord: "https://go.cqhacks.org/discord",
+		instagram: "https://www.instagram.com/cqhacks/",
+		facebook: "https://facebook.com",
+		twitter: "https://twitter.com",
 		github: "https://github.com/acmutsa",
-		guide: "https://go.rowdyhacks.org/discord",
+		guide: "https://go.cqhacks.org/discord",
 	},
 	icon: {
-		sm: "/img/logo/hackkit.svg",
+		sm: "/img/logo/CQFinalLogo.svg",
 		md: "/img/logo/hackkit-md.png",
 		lg: "/img/logo/hackkit-lg.png",
-		svg: "/img/logo/hackkit.svg",
+		svg: "/img/logo/CQFinalLogo.svg",
 	},
 	dashPaths: {
 		dash: {
@@ -898,7 +898,7 @@ const c = {
 	maxResumeSizeInBytes: 4194304,
 	maxProfilePhotoSizeInBytes: 3145728,
 	maxFileSizeInBytes: 4194304,
-	eventPassBgImage: "/img/dash/pass/bg.webp",
+	eventPassBgImage: "/img/logo/Sticker Design-2.svg",
 	noResumeProvidedURL:
 		"https://static.acmutsa.org/No%20Resume%20Provided.pdf",
 	// Come in and change this date to whenever the hackathon starts

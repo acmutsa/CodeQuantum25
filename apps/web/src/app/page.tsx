@@ -20,13 +20,12 @@ export default function Home() {
 	return (
 		<div className={`${oswald.variable} w-full overflow-x-hidden`}>
 			<Navbar />
-			<MLHBadge />
+			{/*<MLHBadge />*/}
 			<main className="overflow-x-hidden">
 				<Hero />
-
 				<About />
 				<FAQ/>
-				{/*<Partners />*/}
+				<Partners />
 				{/*<WorkWithUs />*/}
 				<Footer />
 			</main>

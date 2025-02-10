@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Clock, Heart, Rabbit, CupSoda, Crown, Key, Sparkles } from 'lucide-react'
 import { Button } from "../shadcn/ui/button"
+import Image from "next/image";
 
 export default function Hero() {
 	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -111,7 +112,8 @@ export default function Hero() {
 								ease: "easeInOut",
 							}}
 						>
-							<Rabbit className="w-16 h-16 text-purple-600 mx-auto" />
+							{/*<Rabbit className="w-16 h-16 text-purple-600 mx-auto" />*/}
+							<Image className={"mx-auto -my-8"} src={"/img/logo/CQFinalLogo.svg"} alt={"Logo"} width={256} height={256}/>
 						</motion.div>
 
 						<motion.h1

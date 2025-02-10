@@ -13,14 +13,17 @@ export default function Footer() {
 				<div className="col-span-2 row-span-1 flex items-center justify-self-center font-black sm:row-span-3 lg:row-span-1 lg:justify-self-start">
 					<Image
 						className="w-20 sm:w-28"
-						src=""
+						src="/img/logo/CQFinalLogo.svg"
 						alt="logo"
 						width={100}
 						height={50}
 					/>
-					<h1 className="text-cqOrange pl-0 pr-2 text-3xl text-transparent sm:text-4xl">
-						Down the Rabbit Hole
-					</h1>
+					<div className={"flex flex-col"}>
+						<h1 className={"text-cqOrange pl-0 pr-2 text-3xl sm:text-4xl"}>Code Quantum</h1>
+						<h1 className="text-cqOrange pl-0 pr-2 text-2xl sm:text-xl">
+							Down the Rabbit Hole
+						</h1>
+					</div>
 				</div>
 				{Object.entries(c.footerLinkItems).map(([title, data], idx) => (
 					<FooterLinks
@@ -45,22 +48,21 @@ export default function Footer() {
 				</div>
 				<div className="col-span-2 flex h-[41px] w-[200px] items-center justify-between gap-2 justify-self-center rounded-lg bg-black px-2 lg:col-span-1 lg:col-start-5">
 					{/* TODO: Change these links */}
-					<Link href="https://twitter.com/rowdyhacks/">
+					<Link href={c.links.twitter}>
 						<Twitter className="invert dark:invert-0" />
 					</Link>
-					<Link href="https://www.instagram.com/rowdyhacks/">
+					<Link href={c.links.instagram}>
 						<Instagram className="invert dark:invert-0" />
 					</Link>
 					<Link href="https://www.facebook.com/UTSA.ACM">
 						<Facebook className="invert dark:invert-0" />
 					</Link>
-					<Link href="https://github.com/acmutsa/RowdyHacksX">
+					<Link href={c.links.github}>
 						<Github className="invert dark:invert-0" />
 					</Link>
-					<Link href="https://go.rowdyhacks.org/discord">
-						{/* TODO: Fix the logo */}
+					<Link href={c.links.discord}>
 						<Image
-							className="select-none"
+							className="select-none dark:invert"
 							src="/img/landing/discord_icon.svg"
 							alt="Discord logo"
 							width={20}
