@@ -201,7 +201,7 @@ export default function Hero() {
 								animate={{ opacity: 1 }}
 								transition={{ delay: 0.8 }}
 							>
-								"Every adventure requires a first step."
+								Saturday, March 22; 9:00 AM - 5:00 PM
 							</motion.p>
 							<motion.p
 								className="text-purple-600 text-sm text-center mt-2"
@@ -209,7 +209,7 @@ export default function Hero() {
 								animate={{ opacity: 1 }}
 								transition={{ delay: 1 }}
 							>
-								- The Cheshire Cat
+								@ UTSA SU Denman Ballroom
 							</motion.p>
 						</motion.div>
 					</motion.div>
