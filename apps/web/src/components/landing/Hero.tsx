@@ -201,7 +201,7 @@ export default function Hero() {
 								animate={{ opacity: 1 }}
 								transition={{ delay: 0.8 }}
 							>
-								Saturday, March 22; 10:00 AM - 5:00 PM
+								Saturday, March 22; 9:00 AM - 5:00 PM
 							</motion.p>
 							<motion.p
 								className="text-purple-600 text-sm text-center mt-2"
@@ -209,7 +209,7 @@ export default function Hero() {
 								animate={{ opacity: 1 }}
 								transition={{ delay: 1 }}
 							>
-								@ UTSA SU Denman Ballroom
+								@ UTSA Business Building
 							</motion.p>
 						</motion.div>
 					</motion.div>
