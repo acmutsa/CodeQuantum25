@@ -188,14 +188,14 @@ export default function WorkWithUs() {
 									</motion.li>
 								</ul>
 								<motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+									<a href={"mailto:admin@cqhacks.org"}>
 									<Button
 										variant="outline"
-										// className="w-full border-purple-300 text-purple-600 hover:text-purple-700 rounded-full py-6 text-lg transition-all duration-300 group"
-										className="w-full bg-gray-600 text-gray-400 rounded-full py-6 text-lg transition-all duration-300 group"
-										onClick={() => alert("This is currently not ready yet. Check back later!")}
+										className="w-full border-purple-300 text-purple-600 hover:text-purple-700 rounded-full py-6 text-lg transition-all duration-300 group"
 									>
-										Partner With Us
+										Contact Us
 									</Button>
+									</a>
 								</motion.div>
 							</div>
 						</Card>
