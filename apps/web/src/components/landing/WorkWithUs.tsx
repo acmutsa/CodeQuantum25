@@ -76,7 +76,7 @@ export default function WorkWithUs() {
 					</motion.div>
 					<h2 className="text-4xl md:text-5xl font-bold text-purple-800 mb-6">Join Us!</h2>
 					<p className="text-xl text-purple-600 max-w-2xl mx-auto">
-						Not a beginner? Join as a volunteer, mentor, or judge!
+						Not a beginner? Join as a volunteer or mentor!
 					</p>
 				</motion.div>
 
@@ -113,7 +113,7 @@ export default function WorkWithUs() {
 										<HeartIcon className="w-8 h-8 text-red-400" />
 									</motion.div>
 								</div>
-								<h3 className="text-2xl font-bold text-purple-800 mb-4">Volunteer/Mentor/Judge</h3>
+								<h3 className="text-2xl font-bold text-purple-800 mb-4">Volunteer/Mentor</h3>
 								<ul className="space-y-4 mb-6 text-purple-600">
 									<motion.li className="flex items-center gap-2" whileHover={{ x: 5 }}>
 										<Clock className="w-5 h-5 text-purple-500" />
@@ -125,17 +125,17 @@ export default function WorkWithUs() {
 									</motion.li>
 									<motion.li className="flex items-center gap-2" whileHover={{ x: 5 }}>
 										<Crown className="w-5 h-5 text-purple-500" />
-										<span>Hackers judge projects at the end</span>
+										<span>Help make our event even more magical!</span>
 									</motion.li>
 								</ul>
 								<motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+									<a href={"https://form.cqhacks.org/mentorandvolunteer"}>
 									<Button
-										// className="w-full bg-purple-600 hover:bg-purple-700 text-white rounded-full py-6 text-lg transition-all duration-300 hover:shadow-[0_0_15px_rgba(147,51,234,0.5)]"
-										className="w-full bg-gray-600 text-gray-400 rounded-full py-6 text-lg transition-all duration-300 hover:shadow-[0_0_15px_rgba(147,51,234,0.5)]"
-										onClick={() => alert("This is currently not ready yet. Check back later!")}
+										className="w-full bg-purple-600 hover:bg-purple-700 text-white rounded-full py-6 text-lg transition-all duration-300 hover:shadow-[0_0_15px_rgba(147,51,234,0.5)]"
 									>
 										Show Your Interest
 									</Button>
+									</a>
 								</motion.div>
 							</div>
 						</Card>
