@@ -66,11 +66,11 @@ export default function About() {
 					>
 						<Rabbit className="h-12 w-12 text-purple-600" />
 					</motion.div>
-					<h1 className="mb-4 text-4xl font-bold text-purple-800 md:text-5xl">
+					<h1 className="mb-4 text-4xl font-bold text-purple-800 md:text-5xl font-alice">
 						About Us
 					</h1>
 					<p className="mx-auto max-w-2xl text-lg text-purple-600">
-						Insert something here as a sub-header
+						A Gender Minority Hack Day
 					</p>
 				</motion.div>
 
@@ -87,12 +87,10 @@ export default function About() {
 									<Hearts className="h-8 w-8" />
 								</motion.div>
 								<h3 className="mb-2 text-xl font-semibold text-red-700">
-									Topic 1
+									What We Are
 								</h3>
 								<p className="text-gray-600">
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit. Sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua.
+									CodeQuantum is a free to attend hackathon hosted at UTSA! We are dedicated to creating a safe hacking space for students in the tech field. Hackers can also attend workshops, mini events, socials, and network with our industry partners! Attendance is FREE and all meals, snacks, and drinks are provided. We welcome hackers from all disciplines.
 								</p>
 							</CardContent>
 						</Card>
@@ -109,12 +107,10 @@ export default function About() {
 									<Clock className="h-8 w-8" />
 								</motion.div>
 								<h3 className="mb-2 text-xl font-semibold text-amber-700">
-									Topic 2
+									Hack Day
 								</h3>
 								<p className="text-gray-600">
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit. Sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua.
+									Instead of offering 24 hours, we will be hosting a hack day where the project building time will only be during the day. Please see the schedule for more detailed times.
 								</p>
 							</CardContent>
 						</Card>
@@ -131,92 +127,90 @@ export default function About() {
 									<TeaCup className="h-8 w-8" />
 								</motion.div>
 								<h3 className="mb-2 text-xl font-semibold text-blue-700">
-									Topic 3
+									Where We Will Be
 								</h3>
 								<p className="text-gray-600">
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit. Sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua.
+									CodeQuantum will be hosted on UTSA’s main campus in the Student Union Denman Ballroom
 								</p>
 							</CardContent>
 						</Card>
 					</motion.div>
 
 					{/* Card 4 */}
-					<motion.div variants={itemVariants}>
-						<Card className="group bg-cqWhite transition-shadow duration-300 hover:shadow-xl">
-							<CardContent className="p-6">
-								<motion.div
-									className="mb-4 text-purple-500"
-									whileHover={{ y: -5 }}
-								>
-									<Crown className="h-8 w-8" />
-								</motion.div>
-								<h3 className="mb-2 text-xl font-semibold text-purple-700">
-									Topic 4
-								</h3>
-								<p className="text-gray-600">
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit. Sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua.
-								</p>
-							</CardContent>
-						</Card>
-					</motion.div>
+					{/*<motion.div variants={itemVariants}>*/}
+					{/*	<Card className="group bg-cqWhite transition-shadow duration-300 hover:shadow-xl">*/}
+					{/*		<CardContent className="p-6">*/}
+					{/*			<motion.div*/}
+					{/*				className="mb-4 text-purple-500"*/}
+					{/*				whileHover={{ y: -5 }}*/}
+					{/*			>*/}
+					{/*				<Crown className="h-8 w-8" />*/}
+					{/*			</motion.div>*/}
+					{/*			<h3 className="mb-2 text-xl font-semibold text-purple-700">*/}
+					{/*				Topic 4*/}
+					{/*			</h3>*/}
+					{/*			<p className="text-gray-600">*/}
+					{/*				Lorem ipsum dolor sit amet, consectetur*/}
+					{/*				adipiscing elit. Sed do eiusmod tempor*/}
+					{/*				incididunt ut labore et dolore magna aliqua.*/}
+					{/*			</p>*/}
+					{/*		</CardContent>*/}
+					{/*	</Card>*/}
+					{/*</motion.div>*/}
 
 					{/* Card 5 */}
-					<motion.div variants={itemVariants}>
-						<Card className="group bg-cqWhite transition-shadow duration-300 hover:shadow-xl">
-							<CardContent className="p-6">
-								<motion.div
-									className="mb-4 text-green-500"
-									whileHover={{ y: -5 }}
-								>
-									<Key className="h-8 w-8" />
-								</motion.div>
-								<h3 className="mb-2 text-xl font-semibold text-green-700">
-									Topic 5
-								</h3>
-								<p className="text-gray-600">
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit. Sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua.
-								</p>
-							</CardContent>
-						</Card>
-					</motion.div>
+					{/*<motion.div variants={itemVariants}>*/}
+					{/*	<Card className="group bg-cqWhite transition-shadow duration-300 hover:shadow-xl">*/}
+					{/*		<CardContent className="p-6">*/}
+					{/*			<motion.div*/}
+					{/*				className="mb-4 text-green-500"*/}
+					{/*				whileHover={{ y: -5 }}*/}
+					{/*			>*/}
+					{/*				<Key className="h-8 w-8" />*/}
+					{/*			</motion.div>*/}
+					{/*			<h3 className="mb-2 text-xl font-semibold text-green-700">*/}
+					{/*				Topic 5*/}
+					{/*			</h3>*/}
+					{/*			<p className="text-gray-600">*/}
+					{/*				Lorem ipsum dolor sit amet, consectetur*/}
+					{/*				adipiscing elit. Sed do eiusmod tempor*/}
+					{/*				incididunt ut labore et dolore magna aliqua.*/}
+					{/*			</p>*/}
+					{/*		</CardContent>*/}
+					{/*	</Card>*/}
+					{/*</motion.div>*/}
 
 					{/* Interactive Quote Card */}
-					<motion.div variants={itemVariants}>
-						<Card className="group bg-gradient-to-br from-purple-100 to-pink-100 transition-shadow duration-300 hover:shadow-xl">
-							<CardContent className="p-6">
-								<motion.div
-									className="text-lg font-medium italic text-purple-800"
-									whileHover={{ scale: 1.05 }}
-									transition={{
-										type: "spring",
-										stiffness: 300,
-									}}
-								>
-									Special Quote
-								</motion.div>
-								<div className="mt-4 text-sm text-purple-600">
-									- Quoter
-								</div>
-							</CardContent>
-						</Card>
-					</motion.div>
+					{/*<motion.div variants={itemVariants}>*/}
+					{/*	<Card className="group bg-gradient-to-br from-purple-100 to-pink-100 transition-shadow duration-300 hover:shadow-xl">*/}
+					{/*		<CardContent className="p-6">*/}
+					{/*			<motion.div*/}
+					{/*				className="text-lg font-medium italic text-purple-800"*/}
+					{/*				whileHover={{ scale: 1.05 }}*/}
+					{/*				transition={{*/}
+					{/*					type: "spring",*/}
+					{/*					stiffness: 300,*/}
+					{/*				}}*/}
+					{/*			>*/}
+					{/*				Special Quote*/}
+					{/*			</motion.div>*/}
+					{/*			<div className="mt-4 text-sm text-purple-600">*/}
+					{/*				- Quoter*/}
+					{/*			</div>*/}
+					{/*		</CardContent>*/}
+					{/*	</Card>*/}
+					{/*</motion.div>*/}
 				</div>
 
 				{/* Footer Quote */}
-				<motion.div
-					className="mt-16 text-center"
-					variants={itemVariants}
-				>
-					<p className="text-lg italic text-purple-600">
-						"Insert a quote here"
-					</p>
-				</motion.div>
+				{/*<motion.div*/}
+				{/*	className="mt-16 text-center"*/}
+				{/*	variants={itemVariants}*/}
+				{/*>*/}
+				{/*	<p className="text-lg italic text-purple-600">*/}
+				{/*		"Insert a quote here"*/}
+				{/*	</p>*/}
+				{/*</motion.div>*/}
 			</motion.div>
 		</div>
 	);

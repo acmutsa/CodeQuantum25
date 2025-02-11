@@ -16,6 +16,7 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "../shadcn/ui/accordion";
+import c from "config"
 
 export default function FAQ() {
 	const [hoveredIcon, setHoveredIcon] = useState<number | null>(null);
@@ -23,28 +24,28 @@ export default function FAQ() {
 	const questions = [
 		{
 			icon: <Rabbit className="h-6 w-6" />,
-			question: "Q1",
-			answer: "A1",
+			question: "What if I am not a gender minority?",
+			answer: "Anyone can sign up to participate as a hacker at Code Quantum. However, keep in mind that a lot of the hackathon content will revolve around women and non-binary experiences to reflect our mission of uniting and empowering women and non-binary individuals in STEM. If you do not identify as female or non-binary but consider yourself an ally of our cause, we would love to have you as a mentor or volunteer!",
 		},
 		{
 			icon: <HeartIcon className="h-6 w-6" />,
-			question: "Q2",
-			answer: "A2",
+			question: "What if I am not a beginner?",
+			answer: "We want to focus on beginners, and judging will be more geared toward them as well. While we love your desire to participate and compete, we would love to have you as a mentor or judge to help out the beginner hackers!",
 		},
 		{
 			icon: <CupSoda className="h-6 w-6" />,
-			question: "Q3",
-			answer: "A3",
+			question: "What if I have never coded before, or have never done a project?",
+			answer: "That is okay! We will have mentors available to help you with any problem you have, along with guides that can help you out with whatever you are trying to build!",
 		},
 		{
 			icon: <Crown className="h-6 w-6" />,
-			question: "Q4",
-			answer: "A4",
+			question: "I'm not a Computer Science major. Can I still participate?",
+			answer: "Of course! Code Quantum is open to any majors as we are a beginner friendly hack day. We will have tutorials and guides for basic projects to follow or try your own project.",
 		},
 		{
 			icon: <Key className="h-6 w-6" />,
-			question: "Q5",
-			answer: "A5",
+			question: "Can I work on my project before Code Quantum?",
+			answer: "All projects must start at Code Quantum, but you are free to brainstorm project ideas beforehand.",
 		},
 	];
 
@@ -98,10 +99,9 @@ export default function FAQ() {
 					>
 						<CupSoda className="h-12 w-12 text-purple-600" />
 					</motion.div>
-					<h2 className="mb-4 text-4xl font-bold text-purple-800 md:text-5xl">
+					<h2 className="mb-4 text-6xl font-bold text-purple-800 md:text-6xl font-alice">
 						Frequently Asked Questions
 					</h2>
-					<p className="text-lg text-purple-600">subheading</p>
 				</motion.div>
 
 				{/* FAQ Accordion */}
@@ -172,9 +172,9 @@ export default function FAQ() {
 							className="text-lg italic text-purple-800"
 							whileHover={{ scale: 1.02 }}
 						>
-							Quote
+							If you have any other questions, join our discord to talk to an organizer:
 						</motion.p>
-						<p className="mt-2 text-sm text-purple-600">- Author</p>
+						<a className="mt-2 text-sm text-purple-600" href={c.links.discord}>{c.links.discord}</a>
 					</div>
 				</motion.div>
 			</motion.div>

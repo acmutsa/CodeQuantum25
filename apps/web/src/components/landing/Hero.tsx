@@ -117,7 +117,7 @@ export default function Hero() {
 						</motion.div>
 
 						<motion.h1
-							className="text-5xl md:text-7xl font-bold text-purple-800 mb-6"
+							className="text-5xl md:text-9xl font-bold text-purple-800 mb-6 font-alice"
 							style={{
 								perspective: 1000,
 							}}
@@ -130,7 +130,7 @@ export default function Hero() {
 						</motion.h1>
 
 						<motion.p
-							className="text-xl md:text-2xl text-purple-600 mb-8 max-w-2xl mx-auto"
+							className="text-6xl md:text-6xl text-purple-600 mb-8 max-w-2xl mx-auto font-alice"
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							transition={{ delay: 0.2 }}
@@ -201,7 +201,7 @@ export default function Hero() {
 								animate={{ opacity: 1 }}
 								transition={{ delay: 0.8 }}
 							>
-								Saturday, March 22; 9:00 AM - 5:00 PM
+								Saturday, March 22; 10:00 AM - 5:00 PM
 							</motion.p>
 							<motion.p
 								className="text-purple-600 text-sm text-center mt-2"

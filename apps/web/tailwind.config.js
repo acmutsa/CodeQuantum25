@@ -89,6 +89,7 @@ module.exports = {
 			},
 			fontFamily: {
 				oswald: ["var(--font-oswald)"],
+				alice: ["var(--font-alice)"],
 			},
 		},
 	},
