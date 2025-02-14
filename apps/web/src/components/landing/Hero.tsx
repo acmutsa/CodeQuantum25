@@ -201,7 +201,7 @@ export default function Hero() {
 								animate={{ opacity: 1 }}
 								transition={{ delay: 0.8 }}
 							>
-								Saturday, March 22; 9:00 AM - 5:00 PM
+								Saturday, March 29; 9:00 AM - 5:00 PM
 							</motion.p>
 							<motion.p
 								className="text-purple-600 text-sm text-center mt-2"

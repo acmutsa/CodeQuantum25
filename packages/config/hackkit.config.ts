@@ -892,9 +892,9 @@ const c = {
 		Other: "#795548",
 	},
 	days: {
-		Saturday: new Date(2023, 6, 15),
+		Saturday: new Date(2023, 2, 29),
 	},
-	Sunday: new Date(2023, 6, 16),
+	Sunday: new Date(2023, 2, 30),
 	maxResumeSizeInBytes: 4194304,
 	maxProfilePhotoSizeInBytes: 3145728,
 	maxFileSizeInBytes: 4194304,
@@ -902,8 +902,8 @@ const c = {
 	noResumeProvidedURL:
 		"https://static.acmutsa.org/No%20Resume%20Provided.pdf",
 	// Come in and change this date to whenever the hackathon starts
-	startDate: new Date(new Date(2025, 2, 22).setHours(9)),
-	prettyLocation: "UTSA SU Denman Ballroom",
+	startDate: new Date(new Date(2025, 2, 29).setHours(9)),
+	prettyLocation: "UTSA Business Building",
 	roleBadges: {
 		hacker: {
 			title: "Hacker",
