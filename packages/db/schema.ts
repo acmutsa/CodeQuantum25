@@ -67,7 +67,7 @@ export const userCommonData = pgTable("user_common_data", {
 	gender: varchar("gender", { length: 50 }).notNull(),
 	race: varchar("race", { length: 75 }).notNull(),
 	ethnicity: varchar("ethnicity", { length: 50 }).notNull(),
-	shirtSize: varchar("shirt_size", { length: 5 }).notNull(),
+	shirtSize: varchar("shirt_size", { length: 5 }),
 	dietRestrictions: json("diet_restrictions").notNull(),
 	accommodationNote: text("accommodation_note"),
 	discord: varchar("discord", { length: 60 }),

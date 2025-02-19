@@ -122,14 +122,6 @@ export const RegisterFormValidator = z.object({
 			z.literal("Other"),
 		])
 		.optional(),
-	shirtSize: z.union([
-		z.literal("S", defaultPrettyError),
-		z.literal("M", defaultPrettyError),
-		z.literal("L", defaultPrettyError),
-		z.literal("XL", defaultPrettyError),
-		z.literal("2XL", defaultPrettyError),
-		z.literal("3XL", defaultPrettyError),
-	]),
 	dietaryRestrictions: z.array(z.string()),
 	accommodationNote: z.string().optional(),
 	github: z
