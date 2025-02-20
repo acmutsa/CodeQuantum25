@@ -86,7 +86,6 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 			profileDiscordName: "",
 			pronouns: "",
 			race: "" as any,
-			shirtSize: "" as any,
 			schoolID: "",
 			university: "",
 			phoneNumber: "",
@@ -825,48 +824,6 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 					</FormGroupWrapper>
 					<FormGroupWrapper title="Day of Event">
 						<div className="grid grid-cols-1 gap-x-4 gap-y-2 pb-5 md:grid-cols-2 md:gap-y-0">
-							<FormField
-								control={form.control}
-								name="shirtSize"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>Shirt Size</FormLabel>
-										<Select
-											onValueChange={field.onChange}
-											defaultValue={field.value}
-										>
-											<FormControl>
-												<SelectTrigger className="w-full placeholder:text-muted-foreground">
-													<SelectValue placeholder="Shirt Size" />
-												</SelectTrigger>
-											</FormControl>
-											<SelectContent>
-												<SelectGroup>
-													<SelectItem value="S">
-														S
-													</SelectItem>
-													<SelectItem value="M">
-														M
-													</SelectItem>
-													<SelectItem value="L">
-														L
-													</SelectItem>
-													<SelectItem value="XL">
-														XL
-													</SelectItem>
-													<SelectItem value="2XL">
-														2XL
-													</SelectItem>
-													<SelectItem value="3XL">
-														3XL
-													</SelectItem>
-												</SelectGroup>
-											</SelectContent>
-										</Select>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
 							<FormField
 								control={form.control}
 								name="dietaryRestrictions"
