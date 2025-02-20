@@ -86,7 +86,6 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 			profileDiscordName: "",
 			pronouns: "",
 			race: "" as any,
-			shirtSize: "" as any,
 			schoolID: "",
 			university: "",
 			phoneNumber: "",
