@@ -74,7 +74,6 @@ export async function POST(req: Request) {
 			gender: body.gender,
 			race: body.race,
 			ethnicity: body.ethnicity,
-			shirtSize: body.shirtSize,
 			dietRestrictions: body.dietaryRestrictions,
 			accommodationNote: body.accommodationNote || null,
 			discord: body.profileDiscordName,
