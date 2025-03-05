@@ -130,90 +130,90 @@ export default function RegisterForm({
 	});
 
 	// logic to grab info from local storage
-	useEffect(() => {
-		const hackerFormData = localStorage.getItem(
-			HACKER_REGISTRATION_STORAGE_KEY,
-		);
-		if (hackerFormData) {
-			try {
-				const parsed = JSON.parse(hackerFormData);
-				const res =
-					hackerRegistrationValidatorLocalStorage.safeParse(parsed);
-				if (res.success) {
-					const {
-						ethnicity,
-						gender,
-						major,
-						university,
-						dietRestrictions,
-						heardFrom,
-						softwareExperience,
-						levelOfStudy,
-						race,
-						skills,
-						shirtSize,
-						...remainingData
-					} = res.data;
-					setSkills(res.data.skills as Tag[]);
-					form.reset({
-						...form.formState.defaultValues,
-						ethnicity: ethnicity as EthnicityOptionsType,
-						race: race as RaceOptionsType,
-						gender: gender as GenderOptionsType,
-						university: university as SchoolOptionsType,
-						shirtSize: shirtSize as ShirtSizeOptionsType,
-						skills: skills as Tag[],
-						major: major as MajorOptionsType,
-						levelOfStudy: levelOfStudy as LevelOfStudyOptionsType,
-						softwareExperience:
-							softwareExperience as SoftwareExperienceOptionsType,
-						heardFrom: heardFrom as HeardFromOptionsType,
-						dietRestrictions:
-							dietRestrictions as (typeof c.registration.dietaryRestrictionOptions)[number][],
-						...remainingData,
-					});
-				} else {
-					console.log(
-						"Error schema parsing hacker registration data: ",
-						res.error,
-					);
-				}
-			} catch (e) {
-				console.error(
-					"Error parsing hacker registration JSON data: ",
-					e,
-				);
-			}
-		}
-	}, []);
+	// useEffect(() => {
+	// 	const hackerFormData = localStorage.getItem(
+	// 		HACKER_REGISTRATION_STORAGE_KEY,
+	// 	);
+	// 	if (hackerFormData) {
+	// 		try {
+	// 			const parsed = JSON.parse(hackerFormData);
+	// 			const res =
+	// 				hackerRegistrationValidatorLocalStorage.safeParse(parsed);
+	// 			if (res.success) {
+	// 				const {
+	// 					ethnicity,
+	// 					gender,
+	// 					major,
+	// 					university,
+	// 					dietRestrictions,
+	// 					heardFrom,
+	// 					softwareExperience,
+	// 					levelOfStudy,
+	// 					race,
+	// 					skills,
+	// 					shirtSize,
+	// 					...remainingData
+	// 				} = res.data;
+	// 				setSkills(res.data.skills as Tag[]);
+	// 				form.reset({
+	// 					...form.formState.defaultValues,
+	// 					ethnicity: ethnicity as EthnicityOptionsType,
+	// 					race: race as RaceOptionsType,
+	// 					gender: gender as GenderOptionsType,
+	// 					university: university as SchoolOptionsType,
+	// 					shirtSize: shirtSize as ShirtSizeOptionsType,
+	// 					skills: skills as Tag[],
+	// 					major: major as MajorOptionsType,
+	// 					levelOfStudy: levelOfStudy as LevelOfStudyOptionsType,
+	// 					softwareExperience:
+	// 						softwareExperience as SoftwareExperienceOptionsType,
+	// 					heardFrom: heardFrom as HeardFromOptionsType,
+	// 					dietRestrictions:
+	// 						dietRestrictions as (typeof c.registration.dietaryRestrictionOptions)[number][],
+	// 					...remainingData,
+	// 				});
+	// 			} else {
+	// 				console.log(
+	// 					"Error schema parsing hacker registration data: ",
+	// 					res.error,
+	// 				);
+	// 			}
+	// 		} catch (e) {
+	// 			console.error(
+	// 				"Error parsing hacker registration JSON data: ",
+	// 				e,
+	// 			);
+	// 		}
+	// 	}
+	// }, []);
 
-	// seperate useffect for getting the resume file
-	useEffect(() => {
-		const dataString = localStorage.getItem(
-			HACKER_REGISTRATION_RESUME_STORAGE_KEY,
-		);
+	// // seperate useffect for getting the resume file
+	// useEffect(() => {
+	// 	const dataString = localStorage.getItem(
+	// 		HACKER_REGISTRATION_RESUME_STORAGE_KEY,
+	// 	);
 
-		if (dataString) {
-			try {
-				const parsedValue = JSON.parse(dataString);
-				const schemaParsedRes =
-					hackerRegistrationResumeValidator.safeParse(parsedValue);
-				if (schemaParsedRes.success) {
-					const { fileString, fileName } = schemaParsedRes.data;
-					decodeBase64AsFile(fileString, fileName).then((file) => {
-						setUploadedFile(file);
-					});
-				} else {
-					console.error(
-						"Error parsing resume data: ",
-						schemaParsedRes.error,
-					);
-				}
-			} catch (e) {
-				console.error("Error parsing resume data: ", e);
-			}
-		}
-	}, []);
+	// 	if (dataString) {
+	// 		try {
+	// 			const parsedValue = JSON.parse(dataString);
+	// 			const schemaParsedRes =
+	// 				hackerRegistrationResumeValidator.safeParse(parsedValue);
+	// 			if (schemaParsedRes.success) {
+	// 				const { fileString, fileName } = schemaParsedRes.data;
+	// 				decodeBase64AsFile(fileString, fileName).then((file) => {
+	// 					setUploadedFile(file);
+	// 				});
+	// 			} else {
+	// 				console.error(
+	// 					"Error parsing resume data: ",
+	// 					schemaParsedRes.error,
+	// 				);
+	// 			}
+	// 		} catch (e) {
+	// 			console.error("Error parsing resume data: ", e);
+	// 		}
+	// 	}
+	// }, []);
 
 	// might be good to debounce later on
 	form.watch(() => {
@@ -861,7 +861,7 @@ export default function RegisterForm({
 										<FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
 											<FormControl>
 												<Checkbox
-													checked={field.value}
+													checked={field.value ?? false}
 													onCheckedChange={
 														field.onChange
 													}
