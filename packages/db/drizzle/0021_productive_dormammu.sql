@@ -1,1 +1,0 @@
-ALTER TABLE "user_common_data" ALTER COLUMN "shirt_size" DROP NOT NULL;
