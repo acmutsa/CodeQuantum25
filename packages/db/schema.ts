@@ -119,7 +119,6 @@ export const userCommonData = sqliteTable("user_common_data", {
 	gender: text("gender", { length: 50 }).notNull(),
 	race: text("race", { length: 75 }).notNull(),
 	ethnicity: text("ethnicity", { length: 50 }).notNull(),
-	shirtSize: text("shirt_size", { length: 5 }).notNull(),
 	dietRestrictions: text("diet_restrictions", { mode: "json" })
 		.notNull()
 		.$type<string[]>()

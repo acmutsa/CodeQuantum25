@@ -213,6 +213,11 @@ export default function RegisterForm({
 	// 	}
 	// }, []);
 
+	useEffect(()=>{
+		console.log(form.formState.errors)
+	}, [form.formState.errors
+	])
+
 	// might be good to debounce later on
 	form.watch(() => {
 		localStorage.setItem(
