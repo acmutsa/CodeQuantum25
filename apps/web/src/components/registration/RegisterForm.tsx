@@ -64,7 +64,6 @@ import type {
 	GenderOptionsType,
 	HeardFromOptionsType,
 	SoftwareExperienceOptionsType,
-	ShirtSizeOptionsType,
 	RaceOptionsType,
 	EthnicityOptionsType,
 	SchoolOptionsType,
@@ -118,7 +117,6 @@ export default function RegisterForm({
 			discord: "",
 			pronouns: "",
 			race: "" as RaceOptionsType,
-			shirtSize: "" as ShirtSizeOptionsType,
 			schoolID: "",
 			university: "" as SchoolOptionsType,
 			phoneNumber: "",
@@ -306,8 +304,6 @@ export default function RegisterForm({
 					presignHandlerUrl: "/api/upload/resume/register",
 				},
 			);
-
-			alert(uploadedFileUrl);
 
 			resume = uploadedFileUrl;
 		}
@@ -1342,66 +1338,6 @@ export default function RegisterForm({
 							</FormGroupWrapper>
 							<FormGroupWrapper title="Day of Event">
 								<div className="mt-0 grid grid-cols-1 gap-x-4 gap-y-2 pb-20 md:grid-cols-2 md:gap-y-0">
-									<FormField
-										control={form.control}
-										name="shirtSize"
-										render={({ field }) => (
-											<FormItem>
-												<FormLabel>
-													{formatRegistrationField(
-														"Shirt Size",
-														hackerRegistrationFormValidator.shape[
-															field.name
-														].isOptional(),
-													)}
-												</FormLabel>
-												<Select
-													onValueChange={
-														field.onChange
-													}
-													defaultValue={field.value}
-												>
-													<FormControl>
-														<SelectTrigger className="w-full">
-															<div
-																className={clsx(
-																	"flex w-[95%] justify-start",
-																	{
-																		"text-muted-foreground":
-																			!field.value,
-																	},
-																)}
-															>
-																<p className="overflow-hidden text-ellipsis whitespace-nowrap">
-																	{field.value ||
-																		`Select a Shirt Size`}
-																</p>
-															</div>
-														</SelectTrigger>
-													</FormControl>
-													<SelectContent>
-														<SelectGroup>
-															{c.registration.shirtSizeOptions.map(
-																(option) => (
-																	<SelectItem
-																		value={
-																			option
-																		}
-																		key={
-																			option
-																		}
-																	>
-																		{option}
-																	</SelectItem>
-																),
-															)}
-														</SelectGroup>
-													</SelectContent>
-												</Select>
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
 									<FormField
 										control={form.control}
 										name="dietRestrictions"

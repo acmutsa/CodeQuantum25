@@ -117,10 +117,6 @@ export const hackerRegistrationFormValidator = z
 			c.registration.heardFromOptions,
 			defaultSelectPrettyError,
 		),
-		shirtSize: z.enum(
-			c.registration.shirtSizeOptions,
-			defaultSelectPrettyError,
-		),
 		dietRestrictions: z
 			.array(
 				z.enum(
