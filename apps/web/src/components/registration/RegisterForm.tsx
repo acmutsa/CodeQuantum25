@@ -19,8 +19,6 @@ import {
 } from "@/components/shadcn/ui/select";
 import { Input } from "@/components/shadcn/ui/input";
 import { Button } from "@/components/shadcn/ui/button";
-import { z } from "zod";
-import { RegisterFormValidator } from "@/validators/shared/RegisterForm";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormGroupWrapper from "./FormGroupWrapper";
 import { Checkbox } from "@/components/shadcn/ui/checkbox";
@@ -38,72 +36,97 @@ import {
 	Popover,
 	PopoverContent,
 	PopoverTrigger,
+	PopoverClose,
 } from "@/components/shadcn/ui/popover";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils/client/cn";
 import { useEffect, useCallback, useState } from "react";
 import { Textarea } from "@/components/shadcn/ui/textarea";
-import { zpostSafe } from "@/lib/utils/client/zfetch";
 import { useAuth } from "@clerk/nextjs";
-import { BasicServerValidator } from "@/validators/shared/basic";
 import { useRouter } from "next/navigation";
 import { FileRejection, useDropzone } from "react-dropzone";
-import { put, type PutBlobResult } from "@vercel/blob";
+import { put } from "@/lib/utils/client/file-upload";
 import { Tag, TagInput } from "@/components/shadcn/ui/tag/tag-input";
 import CreatingRegistration from "./CreatingRegistration";
-import { bucketResumeBaseUploadUrl } from "config";
-import { count } from "console";
-interface RegisterFormProps {
-	defaultEmail: string;
-}
+import { staticUploads } from "config";
+import {
+	hackerRegistrationFormValidator,
+	hackerRegistrationValidatorLocalStorage,
+	hackerRegistrationResumeValidator,
+} from "@/validators/shared/registration";
+import { formatRegistrationField } from "@/lib/utils/client/shared";
+import clsx from "clsx";
+import { capitalizeFirstLetter } from "@/lib/utils/client/shared";
+import RegistrationFeedbackAlert from "./RegistrationFeedbackAlert";
+import { registerHacker } from "@/actions/registration";
+import { useAction } from "next-safe-action/hooks";
+import type {
+	GenderOptionsType,
+	HeardFromOptionsType,
+	SoftwareExperienceOptionsType,
+	ShirtSizeOptionsType,
+	RaceOptionsType,
+	EthnicityOptionsType,
+	SchoolOptionsType,
+	LevelOfStudyOptionsType,
+	MajorOptionsType,
+} from "@/lib/types/user";
+import z from "zod";
+import {
+	HACKER_REGISTRATION_STORAGE_KEY,
+	HACKER_REGISTRATION_RESUME_STORAGE_KEY,
+	NOT_LOCAL_SCHOOL,
+} from "@/lib/constants";
+import {
+	encodeFileAsBase64,
+	decodeBase64AsFile,
+} from "@/lib/utils/shared/files";
 
-export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
-	const { isLoaded, userId } = useAuth();
+export default function RegisterForm({
+	defaultEmail,
+}: {
+	defaultEmail: string;
+}) {
+	const { isLoaded: isAuthLoaded } = useAuth();
+	const [isLoading, setIsLoading] = useState(false);
+	const [uploadedFile, setUploadedFile] = useState<File | null>(null);
 	const router = useRouter();
 
-	const form = useForm<z.infer<typeof RegisterFormValidator>>({
-		resolver: zodResolver(RegisterFormValidator),
+	const form = useForm<z.infer<typeof hackerRegistrationFormValidator>>({
+		resolver: zodResolver(hackerRegistrationFormValidator),
 		defaultValues: {
-			email: defaultEmail,
 			hackathonsAttended: 0,
-			dietaryRestrictions: [],
-			profileIsSearchable: true,
+			dietRestrictions: [],
+			isSearchable: false,
 			bio: "",
 			// The rest of these are default values to prevent the controller / uncontrolled input warning from React
 			accommodationNote: "",
 			firstName: "",
 			lastName: "",
 			age: 0,
-			ethnicity: "" as any,
-			gender: "" as any,
-			major: "",
-			github: "",
+			ethnicity: "" as EthnicityOptionsType,
+			gender: "" as GenderOptionsType,
+			major: "" as MajorOptionsType,
+			GitHub: "",
 			hackerTag: "",
-			heardAboutEvent: "" as any,
-			levelOfStudy: "" as any,
-			linkedin: "",
-			personalWebsite: "",
-			profileDiscordName: "",
+			heardFrom: "" as HeardFromOptionsType,
+			levelOfStudy: "" as LevelOfStudyOptionsType,
+			LinkedIn: "",
+			PersonalWebsite: "",
+			discord: "",
 			pronouns: "",
 			race: "" as any,
 			schoolID: "",
-			university: "",
+			university: "" as SchoolOptionsType,
 			phoneNumber: "",
 			countryOfResidence: "",
+			softwareExperience: "" as SoftwareExperienceOptionsType,
+			email: defaultEmail,
+			skills: [],
 		},
 	});
 
-	const { isSubmitSuccessful, isSubmitted, errors } = form.formState;
-
-	const hasErrors = !isSubmitSuccessful && isSubmitted;
-
-	const [uploadedFile, setUploadedFile] = useState<File | null>(null);
-	const [skills, setSkills] = useState<Tag[]>([]);
-	const [isLoading, setIsLoading] = useState(false);
-	const universityValue = form.watch("university");
-	const bioValue = form.watch("bio");
-	const countryValue = form.watch("countryOfResidence");
-
+	// logic to grab info from local storage
 	useEffect(() => {
 		if (universityValue != c.localUniversityName) {
 			form.setValue("schoolID", "NOT_LOCAL_SCHOOL");
@@ -148,35 +171,97 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 			} else {
 				if (res.data.message == "hackertag_not_unique") {
 					setIsLoading(false);
-					return alert(
-						"The HackerTag you chose has already been taken. Please change it and then resubmit the form.",
+					console.error("onSuccess Error data:", data);
+					setErrorMessage(
+						data?.message ?? "Unexpected error occured",
 					);
 				}
+			},
+			onError: ({ error }) => {
 				setIsLoading(false);
-				return alert(
-					`Registration not created. Error message: \n\n ${res.data.message} \n\n Please try again. If this is a continuing issue, please reach out to us at ${c.issueEmail}.`,
-				);
-			}
+				console.log("onError Error is: ", error);
+				resetRegisterUser();
+			},
+		},
+	);
+
+	const { isSubmitSuccessful, isSubmitted } = form.formState;
+
+	const hasErrors = !isSubmitSuccessful && isSubmitted;
+
+	const [skills, setSkills] = useState<Tag[]>([]);
+	const [hasSuccess, setHasSuccess] = useState(false);
+	const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+	const universityValue = form.watch("university");
+	const bioValue = form.watch("bio");
+	const classificationValue = form.watch("levelOfStudy");
+	const isLocalUniversitySelected =
+		universityValue === c.localUniversityName &&
+		classificationValue !== "Recent Grad";
+
+	// used to track whether to enable the university ID field
+	useEffect(() => {
+		if (
+			(universityValue && universityValue !== c.localUniversityName) ||
+			classificationValue === "Recent Grad"
+		) {
+			form.setValue("schoolID", NOT_LOCAL_SCHOOL);
 		} else {
-			setIsLoading(false);
-			alert(
-				`Something went wrong while attempting to register. Please try again. If this is a continuing issue, please reach out to us at ${c.issueEmail}.`,
-			);
-			return console.log(
-				`Recieved a unexpected response from the server. Please try again. If this is a continuing issue, please reach out to us at ${c.issueEmail}.`,
-			);
+			form.setValue("schoolID", form.getValues("schoolID") ?? "");
 		}
+	}, [universityValue]);
+
+	async function onSubmit(
+		data: z.infer<typeof hackerRegistrationFormValidator>,
+	) {
+		setIsLoading(true);
+		console.log(data);
+		setErrorMessage(null);
+		if (!isAuthLoaded) {
+			setErrorMessage(
+				`Auth has not loaded yet. Please try again! If this is a repeating issue, please contact us at ${c.issueEmail}.`,
+			);
+			return;
+		}
+
+		let resume: string = c.noResumeProvidedURL;
+		if (uploadedFile) {
+			// test what happens when an error is thrown
+			const uploadedFileUrl = await put(
+				staticUploads.bucketResumeBaseUploadUrl,
+				uploadedFile,
+				{
+					presignHandlerUrl: "/api/upload/resume/register",
+				},
+			);
+
+			alert(uploadedFileUrl);
+
+			resume = uploadedFileUrl;
+		}
+		runRegisterUser({ ...data, resume });
 	}
 
 	const onDrop = useCallback(
-		(acceptedFiles: File[], fileRejections: FileRejection[]) => {
+		async (acceptedFiles: File[], fileRejections: FileRejection[]) => {
 			if (fileRejections.length > 0) {
 				alert(
 					`The file you uploaded was rejected with the reason "${fileRejections[0].errors[0].message}". Please try again.`,
 				);
 			}
 			if (acceptedFiles.length > 0) {
-				setUploadedFile(acceptedFiles[0]);
+				const file = acceptedFiles[0];
+				setUploadedFile(file);
+				const fileName = file.name;
+				const inputs = {
+					fileName,
+					fileString: await encodeFileAsBase64(file),
+				};
+				localStorage.setItem(
+					HACKER_REGISTRATION_RESUME_STORAGE_KEY,
+					JSON.stringify(inputs),
+				);
 			}
 		},
 		[],
@@ -189,10 +274,6 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 		noClick: uploadedFile != null,
 		noDrag: uploadedFile != null,
 	});
-
-	if (isLoading) {
-		return <CreatingRegistration />;
-	}
 
 	return (
 		<div>
