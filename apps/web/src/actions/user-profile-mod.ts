@@ -28,7 +28,6 @@ export const modifyRegistrationData = authenticatedAction
 				gender,
 				race,
 				ethnicity,
-				isEmailable,
 				university,
 				major,
 				levelOfStudy,
@@ -36,7 +35,6 @@ export const modifyRegistrationData = authenticatedAction
 				hackathonsAttended,
 				softwareBuildingExperience,
 				heardAboutEvent,
-				shirtSize,
 				dietaryRestrictions,
 				accommodationNote,
 				github,
@@ -57,7 +55,6 @@ export const modifyRegistrationData = authenticatedAction
 						gender,
 						race,
 						ethnicity,
-						shirtSize,
 						dietRestrictions: dietaryRestrictions,
 						accommodationNote,
 						phoneNumber,
@@ -67,7 +64,6 @@ export const modifyRegistrationData = authenticatedAction
 				db
 					.update(userHackerData)
 					.set({
-						isEmailable,
 						university,
 						major,
 						levelOfStudy,
@@ -96,7 +92,6 @@ export const modifyRegistrationData = authenticatedAction
 				newGender: gender,
 				newRace: race,
 				newEthnicity: ethnicity,
-				newWantsToReceiveMLHEmails: isEmailable,
 				newUniversity: university,
 				newMajor: major,
 				newLevelOfStudy: levelOfStudy,
@@ -104,7 +99,6 @@ export const modifyRegistrationData = authenticatedAction
 				newHackathonsAttended: hackathonsAttended,
 				newSoftwareExperience: softwareBuildingExperience,
 				newHeardFrom: heardAboutEvent,
-				newShirtSize: shirtSize,
 				newDietaryRestrictions: dietaryRestrictions,
 				newAccommodationNote: accommodationNote,
 				newGitHub: github,

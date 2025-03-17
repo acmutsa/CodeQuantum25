@@ -79,16 +79,10 @@ function EventPass({ qrPayload, user, clerk, guild }: EventPassProps) {
 						alt={""}
 						fill
 						priority
-						className="no-select -translate-y-[15%] scale-[0.8] object-contain"
+						className="no-select -translate-y-[15%] scale-[0.6] object-contain"
 					/>
 					<div className="grid h-20 w-full grid-cols-2">
 						<div className="flex h-full w-full items-center justify-start pl-2">
-							<Image
-								src={c.icon.svg}
-								height={60}
-								width={60}
-								alt={``}
-							/>
 							<h1 className="text-md ml-1 font-bold leading-tight">
 								{c.hackathonName}{" "}
 								<span className="text-hackathon">

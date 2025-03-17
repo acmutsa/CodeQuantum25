@@ -119,7 +119,6 @@ export const userCommonData = sqliteTable("user_common_data", {
 	gender: text("gender", { length: 50 }).notNull(),
 	race: text("race", { length: 75 }).notNull(),
 	ethnicity: text("ethnicity", { length: 50 }).notNull(),
-	shirtSize: text("shirt_size", { length: 5 }).notNull(),
 	dietRestrictions: text("diet_restrictions", { mode: "json" })
 		.notNull()
 		.$type<string[]>()
@@ -206,11 +205,11 @@ export const userHackerData = sqliteTable("user_hacker_data", {
 	points: integer("points").notNull().default(0),
 	hasAcceptedMLHCoC: integer("has_accepted_mlh_coc", {
 		mode: "boolean",
-	}).notNull(),
+	}),
 	hasSharedDataWithMLH: integer("has_shared_data_with_mlh", {
 		mode: "boolean",
-	}).notNull(),
-	isEmailable: integer("is_emailable", { mode: "boolean" }).notNull(),
+	}),
+	isEmailable: integer("is_emailable", { mode: "boolean" }),
 });
 
 export const userHackerRelations = relations(

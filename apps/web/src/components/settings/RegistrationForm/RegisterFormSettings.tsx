@@ -69,7 +69,6 @@ export default function RegisterFormSettings({
 		defaultValues: {
 			hackathonsAttended: originalData.hackathonsAttended,
 			dietaryRestrictions: user.dietRestrictions as any,
-			isEmailable: originalData.isEmailable,
 			accommodationNote: user.accommodationNote || "",
 			age: user.age,
 			ethnicity: user.ethnicity as any,
@@ -81,7 +80,6 @@ export default function RegisterFormSettings({
 			linkedin: originalData.LinkedIn ?? "",
 			personalWebsite: originalData.PersonalWebsite ?? "",
 			race: user.race as any,
-			shirtSize: user.shirtSize as any,
 			schoolID: originalData.schoolID,
 			softwareBuildingExperience: originalData.softwareExperience as any,
 			university: originalData.university,
@@ -465,34 +463,6 @@ export default function RegisterFormSettings({
 							/>
 						</div>
 					</FormGroupWrapper>
-					<FormGroupWrapper title="MLH">
-						<FormField
-							control={form.control}
-							name="isEmailable"
-							render={({ field }) => (
-								<FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
-									<FormControl>
-										<Checkbox
-											checked={field.value}
-											onCheckedChange={field.onChange}
-										/>
-									</FormControl>
-									<div className="space-y-1 leading-none">
-										<FormLabel>
-											I authorize MLH to send me an email
-											where I can further opt into the MLH
-											Hacker, Events, or Organizer
-											Newsletters and other communications
-											from MLH.
-										</FormLabel>
-										<FormDescription>
-											This is optional.
-										</FormDescription>
-									</div>
-								</FormItem>
-							)}
-						/>
-					</FormGroupWrapper>
 					<FormGroupWrapper title="University Info">
 						<div
 							className={`grid ${
@@ -833,48 +803,6 @@ export default function RegisterFormSettings({
 					</FormGroupWrapper>
 					<FormGroupWrapper title="Day of Event">
 						<div className="grid grid-cols-1 gap-x-4 gap-y-2 pb-5 md:grid-cols-2 md:gap-y-0">
-							<FormField
-								control={form.control}
-								name="shirtSize"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>Shirt Size</FormLabel>
-										<Select
-											onValueChange={field.onChange}
-											defaultValue={field.value}
-										>
-											<FormControl>
-												<SelectTrigger className="w-full placeholder:text-muted-foreground">
-													<SelectValue placeholder="Shirt Size" />
-												</SelectTrigger>
-											</FormControl>
-											<SelectContent>
-												<SelectGroup>
-													<SelectItem value="S">
-														S
-													</SelectItem>
-													<SelectItem value="M">
-														M
-													</SelectItem>
-													<SelectItem value="L">
-														L
-													</SelectItem>
-													<SelectItem value="XL">
-														XL
-													</SelectItem>
-													<SelectItem value="2XL">
-														2XL
-													</SelectItem>
-													<SelectItem value="3XL">
-														3XL
-													</SelectItem>
-												</SelectGroup>
-											</SelectContent>
-										</Select>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
 							<FormField
 								control={form.control}
 								name="dietaryRestrictions"

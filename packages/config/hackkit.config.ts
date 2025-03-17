@@ -806,12 +806,12 @@ const softwareExperienceOptions = [
 ] as const;
 
 const c = {
-	hackathonName: "HackKit",
-	itteration: "I",
-	siteUrl: "https://rowdyhacks.org", // Do not have a trailing slash
-	defaultMetaDataDescription: "Your Metadata Description Here",
-	rsvpDefaultLimit: 500,
-	botName: "HackKit",
+	hackathonName: "Code Quantum",
+	itteration: "25",
+	siteUrl: "https://cqhacks.org", // Do not have a trailing slash
+	defaultMetaDataDescription: "Code Quantum",
+	rsvpDefaultLimit: 175,
+	botName: "CQBot",
 	botParticipantRole: "Participant",
 	hackathonTimezone: "America/Chicago",
 	localUniversityName: schoolOptions[0],
@@ -853,6 +853,32 @@ const c = {
 				"You have already registered. Please login to your account",
 		},
 	},
+	footerLinkItems: {
+		resources: [
+			{ name: "Register", link: "/register" },
+			// { name: "Code of Conduct", link: "https://go.rowdyhacks.org/coc" },
+			// { name: "Contact Us", link: "/contact" },
+			{ name: "ACM-W", link: "https://acmutsa.org/suborg_acmw" },
+			{ name: "ACM UTSA", link: "https://acmutsa.org/" },
+		],
+		links: [
+			{
+				name: "Source Code",
+				link: "github.com/acmutsa/CodeQuantum25",
+			},
+		],
+		otherHackathons: [
+			{ name: "RowdyHacks", link: "https://rowdyhacks.org" },
+			{ name: "RowdyDatathon", link: "https://www.rowdydatathon.org/" },
+			{ name: "TAMUHack", link: "https://tamuhack.com/" },
+			{ name: "WEHack", link: "https://wehackutd.com/" },
+			{ name: "HackUTD", link: "https://hackutd.co/" },
+			{ name: "HackTX", link: "https://hacktx.com/" },
+			{ name: "HackUNT", link: "https://unthackathon.com/#/" },
+			{ name: "HackUTA", link: "https://hackuta.org/" },
+			{ name: "Hacklahoma", link: "https://hacklahoma.org/" },
+		],
+	},
 	groups: {
 		"Guild A | Group A": {
 			discordRole: "Guild A Role",
@@ -885,20 +911,20 @@ const c = {
 			discordRole: "Guild E Role",
 		},
 	},
-	issueEmail: "team@rowdyhacks.org",
+	issueEmail: "team@cqhacks.org",
 	links: {
-		discord: "https://go.rowdyhacks.org/discord",
-		instagram: "https://instagram.com/rowdyhacks",
-		facebook: "https://facebook.com/rowdyhacks",
-		twitter: "https://twitter.com/rowdyhacks",
+		discord: "https://go.cqhacks.org/discord",
+		instagram: "https://www.instagram.com/cqhacks/",
+		facebook: "https://facebook.com",
+		twitter: "https://twitter.com",
 		github: "https://github.com/acmutsa",
-		guide: "https://go.rowdyhacks.org/discord",
+		guide: "https://go.cqhacks.org/discord",
 	},
 	icon: {
-		sm: "/img/logo/hackkit.svg",
+		sm: "/img/logo/CQFinalLogo.svg",
 		md: "/img/logo/hackkit-md.png",
 		lg: "/img/logo/hackkit-lg.png",
-		svg: "/img/logo/hackkit.svg",
+		svg: "/img/logo/CQFinalLogo.svg",
 	},
 	dashPaths: {
 		dash: {
@@ -932,12 +958,12 @@ const c = {
 	maxResumeSizeInBytes: 4194304,
 	maxProfilePhotoSizeInBytes: 3145728,
 	maxFileSizeInBytes: 4194304,
-	eventPassBgImage: "/img/dash/pass/bg.webp",
+	eventPassBgImage: "/img/logo/CQFinalLogo.svg",
 	noResumeProvidedURL:
 		"https://static.acmutsa.org/No%20Resume%20Provided.pdf",
 	// Come in and change this date to whenever the hackathon starts
-	startDate: new Date(new Date(2024, 1, 24).setHours(9)),
-	prettyLocation: "Location of Hackathon",
+	startDate: new Date(new Date(2025, 2, 22).setHours(9)),
+	prettyLocation: "UTSA SU Denman Ballroom",
 	roleBadges: {
 		hacker: {
 			title: "Hacker",

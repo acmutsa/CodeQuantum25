@@ -25,6 +25,7 @@ export const S3 = new S3Client({
 
 const dbPostgres = pgDrizzle(sql, { schema: pgSchema });
 
+
 const allUserCommonDataPromise = dbPostgres.query.userCommonData.findMany();
 const allUserHackerDataPromise = dbPostgres.query.userHackerData.findMany();
 const allEventsPromise = dbPostgres.query.events.findMany();
