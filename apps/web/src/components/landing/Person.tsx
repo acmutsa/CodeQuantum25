@@ -3,6 +3,7 @@ export type Person = {
 	lname: string;
 	imgLink: string;
 	role: string;
+	color: string;
 	linkedin: string;
 	website: string;
 	github: string;
