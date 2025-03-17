@@ -10,9 +10,6 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import c, { staticUploads } from "config";
 import { eq } from "drizzle-orm";
 
-
-
-
 dotenv.config({
 	path: "../../.env",
 });
@@ -54,8 +51,6 @@ async function migratePostgresSqLite() {
 	});
 	const db = drizzle(turso, { schema });
 
-
-	
 	const [
 		allUserCommonData,
 		allUserHackerData,
@@ -216,45 +211,52 @@ async function migratePostgresSqLite() {
 	console.log("Migrating Vercel Blob Files To R2");
 
 	const resumeData = await db.query.userHackerData.findMany({
-			columns: { resume: true, clerkID: true },
-		});
-	
-		for (let resumeEntry of resumeData) {
-			const { resume: resumeUrlAsString, clerkID: userID } = resumeEntry;
-			if (!resumeUrlAsString.length || resumeUrlAsString === c.noResumeProvidedURL || resumeUrlAsString.startsWith("/api")) continue ;
-	
-			const resumeUrl = new URL(resumeUrlAsString);
-			const resumeFetchResponse = await fetch(resumeUrl);
-	
-			if (!resumeFetchResponse.ok) {
-				console.log("resume fetch failed");
-			}
-			const resumeBlob = await resumeFetchResponse.blob();
-			
+		columns: { resume: true, clerkID: true },
+	});
 
-			const key = "Migrated" + decodeURIComponent(resumeUrl.pathname);
-			
-			const buffer = await resumeBlob.arrayBuffer();
-	
-			const cmd = new PutObjectCommand({
-				Key: key,
-				Bucket: staticUploads.bucketName,
-				ContentType: "application/pdf",
-				///@ts-expect-error
-				Body: buffer,
-			});
-	
-			await S3.send(cmd);
-	
-			// New url to correspond to an api route
-			const newResumeUrl = `/api/upload/resume/view?key=${key}`;
-	
-			await db
-				.update(schema.userHackerData)
-				.set({ resume: newResumeUrl.toString() })
-				.where(eq(schema.userHackerData.clerkID, userID));
+	for (let resumeEntry of resumeData) {
+		const { resume: resumeUrlAsString, clerkID: userID } = resumeEntry;
+		if (
+			!resumeUrlAsString.length ||
+			resumeUrlAsString === c.noResumeProvidedURL ||
+			resumeUrlAsString.startsWith("/api")
+		)
+			continue;
 
+		const resumeUrl = new URL(resumeUrlAsString);
+		const resumeFetchResponse = await fetch(resumeUrl);
+
+		if (!resumeFetchResponse.ok) {
+			console.log("resume fetch failed");
 		}
+		const resumeBlob = await resumeFetchResponse.blob();
+
+		let key = decodeURIComponent(resumeUrl.pathname);
+		// if the first character is a slash, remove it
+		if (key.charAt(0) === "/") {
+			key = key.slice(1);
+		}
+
+		const buffer = await resumeBlob.arrayBuffer();
+
+		const cmd = new PutObjectCommand({
+			Key: key,
+			Bucket: staticUploads.bucketName,
+			ContentType: "application/pdf",
+			///@ts-expect-error
+			Body: buffer,
+		});
+
+		await S3.send(cmd);
+
+		// New url to correspond to an api route
+		const newResumeUrl = `/api/upload/resume/view?key=${key}`;
+
+		await db
+			.update(schema.userHackerData)
+			.set({ resume: newResumeUrl.toString() })
+			.where(eq(schema.userHackerData.clerkID, userID));
+	}
 
 	console.log("Migrated Vercel Blob Files To R2");
 
