@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "8d3401ea-653e-49d5-a664-790d98e2bab6",
+  "id": "703bd00e-a273-437d-a867-2dc79cfd5d4a",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "chat_messages": {
@@ -790,13 +790,6 @@
           "notNull": true,
           "autoincrement": false
         },
-        "shirt_size": {
-          "name": "shirt_size",
-          "type": "text(5)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
         "diet_restrictions": {
           "name": "diet_restrictions",
           "type": "text",
@@ -1053,21 +1046,21 @@
           "name": "has_accepted_mlh_coc",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "has_shared_data_with_mlh": {
           "name": "has_shared_data_with_mlh",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "is_emailable": {
           "name": "is_emailable",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         }
       },

@@ -11,6 +11,7 @@ import FAQ from "@/components/landing/FAQ";
 import { Oswald } from "next/font/google";
 import WorkWithUs from "@/components/landing/WorkWithUs";
 import localFont from "next/font/local";
+import Team from "@/components/landing/Team";
 
 const oswald = Oswald({
 	variable: "--font-oswald",
@@ -32,6 +33,7 @@ export default function Home() {
 				<About />
 				<FAQ/>
 				<Partners />
+				<Team/>
 				<WorkWithUs />
 				<Footer />
 			</main>

@@ -98,9 +98,7 @@ export default function RegisterForm({
 			dietRestrictions: [],
 			isSearchable: false,
 			bio: "",
-			isEmailable: false,
-			hasAcceptedMLHCoC: false,
-			hasSharedDataWithMLH: false,
+			// The rest of these are default values to prevent the controller / uncontrolled input warning from React
 			accommodationNote: "",
 			firstName: "",
 			lastName: "",
@@ -116,7 +114,7 @@ export default function RegisterForm({
 			PersonalWebsite: "",
 			discord: "",
 			pronouns: "",
-			race: "" as RaceOptionsType,
+			race: "" as any,
 			schoolID: "",
 			university: "" as SchoolOptionsType,
 			phoneNumber: "",
@@ -128,95 +126,88 @@ export default function RegisterForm({
 	});
 
 	// logic to grab info from local storage
-	// useEffect(() => {
-	// 	const hackerFormData = localStorage.getItem(
-	// 		HACKER_REGISTRATION_STORAGE_KEY,
-	// 	);
-	// 	if (hackerFormData) {
-	// 		try {
-	// 			const parsed = JSON.parse(hackerFormData);
-	// 			const res =
-	// 				hackerRegistrationValidatorLocalStorage.safeParse(parsed);
-	// 			if (res.success) {
-	// 				const {
-	// 					ethnicity,
-	// 					gender,
-	// 					major,
-	// 					university,
-	// 					dietRestrictions,
-	// 					heardFrom,
-	// 					softwareExperience,
-	// 					levelOfStudy,
-	// 					race,
-	// 					skills,
-	// 					shirtSize,
-	// 					...remainingData
-	// 				} = res.data;
-	// 				setSkills(res.data.skills as Tag[]);
-	// 				form.reset({
-	// 					...form.formState.defaultValues,
-	// 					ethnicity: ethnicity as EthnicityOptionsType,
-	// 					race: race as RaceOptionsType,
-	// 					gender: gender as GenderOptionsType,
-	// 					university: university as SchoolOptionsType,
-	// 					shirtSize: shirtSize as ShirtSizeOptionsType,
-	// 					skills: skills as Tag[],
-	// 					major: major as MajorOptionsType,
-	// 					levelOfStudy: levelOfStudy as LevelOfStudyOptionsType,
-	// 					softwareExperience:
-	// 						softwareExperience as SoftwareExperienceOptionsType,
-	// 					heardFrom: heardFrom as HeardFromOptionsType,
-	// 					dietRestrictions:
-	// 						dietRestrictions as (typeof c.registration.dietaryRestrictionOptions)[number][],
-	// 					...remainingData,
-	// 				});
-	// 			} else {
-	// 				console.log(
-	// 					"Error schema parsing hacker registration data: ",
-	// 					res.error,
-	// 				);
-	// 			}
-	// 		} catch (e) {
-	// 			console.error(
-	// 				"Error parsing hacker registration JSON data: ",
-	// 				e,
-	// 			);
-	// 		}
-	// 	}
-	// }, []);
+	useEffect(() => {
+		const hackerFormData = localStorage.getItem(
+			HACKER_REGISTRATION_STORAGE_KEY,
+		);
+		if (hackerFormData) {
+			try {
+				const parsed = JSON.parse(hackerFormData);
+				const res =
+					hackerRegistrationValidatorLocalStorage.safeParse(parsed);
+				if (res.success) {
+					const {
+						ethnicity,
+						gender,
+						major,
+						university,
+						dietRestrictions,
+						heardFrom,
+						softwareExperience,
+						levelOfStudy,
+						race,
+						skills,
+						...remainingData
+					} = res.data;
+					setSkills(res.data.skills as Tag[]);
+					form.reset({
+						...form.formState.defaultValues,
+						ethnicity: ethnicity as EthnicityOptionsType,
+						race: race as RaceOptionsType,
+						gender: gender as GenderOptionsType,
+						university: university as SchoolOptionsType,
+						skills: skills as Tag[],
+						major: major as MajorOptionsType,
+						levelOfStudy: levelOfStudy as LevelOfStudyOptionsType,
+						softwareExperience:
+							softwareExperience as SoftwareExperienceOptionsType,
+						heardFrom: heardFrom as HeardFromOptionsType,
+						dietRestrictions:
+							dietRestrictions as (typeof c.registration.dietaryRestrictionOptions)[number][],
+						...remainingData,
+					});
+				} else {
+					console.log(
+						"Error schema parsing hacker registration data: ",
+						res.error,
+					);
+				}
+			} catch (e) {
+				console.error(
+					"Error parsing hacker registration JSON data: ",
+					e,
+				);
+			}
+		}
+	}, []);
 
-	// // seperate useffect for getting the resume file
-	// useEffect(() => {
-	// 	const dataString = localStorage.getItem(
-	// 		HACKER_REGISTRATION_RESUME_STORAGE_KEY,
-	// 	);
+	// seperate useffect for getting the resume file
+	useEffect(() => {
+		const dataString = localStorage.getItem(
+			HACKER_REGISTRATION_RESUME_STORAGE_KEY,
+		);
 
-	// 	if (dataString) {
-	// 		try {
-	// 			const parsedValue = JSON.parse(dataString);
-	// 			const schemaParsedRes =
-	// 				hackerRegistrationResumeValidator.safeParse(parsedValue);
-	// 			if (schemaParsedRes.success) {
-	// 				const { fileString, fileName } = schemaParsedRes.data;
-	// 				decodeBase64AsFile(fileString, fileName).then((file) => {
-	// 					setUploadedFile(file);
-	// 				});
-	// 			} else {
-	// 				console.error(
-	// 					"Error parsing resume data: ",
-	// 					schemaParsedRes.error,
-	// 				);
-	// 			}
-	// 		} catch (e) {
-	// 			console.error("Error parsing resume data: ", e);
-	// 		}
-	// 	}
-	// }, []);
-
-	useEffect(()=>{
-		console.log(form.formState.errors)
-	}, [form.formState.errors
-	])
+		if (dataString) {
+			try {
+				const parsedValue = JSON.parse(dataString);
+				const schemaParsedRes =
+					hackerRegistrationResumeValidator.safeParse(parsedValue);
+				if (schemaParsedRes.success) {
+					const { fileString, fileName } = schemaParsedRes.data;
+					decodeBase64AsFile(fileString, fileName).then((file) => {
+						setUploadedFile(file);
+					});
+				} else {
+					console.error(
+						"Error parsing resume data: ",
+						schemaParsedRes.error,
+					);
+				}
+			} catch (e) {
+				console.error("Error parsing resume data: ", e);
+			}
+		}
+	}, []);
 
 	// might be good to debounce later on
 	form.watch(() => {
@@ -309,6 +300,8 @@ export default function RegisterForm({
 					presignHandlerUrl: "/api/upload/resume/register",
 				},
 			);
+
+			alert(uploadedFileUrl);
 
 			resume = uploadedFileUrl;
 		}
@@ -772,115 +765,6 @@ export default function RegisterForm({
 										)}
 									/>
 								</div>
-							</FormGroupWrapper>
-							<FormGroupWrapper title="MLH">
-								<FormField
-									control={form.control}
-									name="hasAcceptedMLHCoC"
-									render={({ field }) => (
-										<FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
-											<FormControl>
-												<Checkbox
-													checked={field.value}
-													onCheckedChange={
-														field.onChange
-													}
-												/>
-											</FormControl>
-											<div className="space-y-1 leading-none">
-												<FormLabel>
-													I accept the{" "}
-													<Link
-														target="_blank"
-														className="underline"
-														href={
-															"https://mlh.io/code-of-conduct"
-														}
-													>
-														MLH Code of Conduct
-													</Link>
-													{" *"}
-												</FormLabel>
-											</div>
-										</FormItem>
-									)}
-								/>
-								<FormField
-									control={form.control}
-									name="hasSharedDataWithMLH"
-									render={({ field }) => (
-										<FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
-											<FormControl>
-												<Checkbox
-													checked={field.value}
-													onCheckedChange={
-														field.onChange
-													}
-												/>
-											</FormControl>
-											<div className="space-y-1 leading-none">
-												<FormLabel>
-													I authorize you to share my
-													application/registration
-													information with Major
-													League Hacking for event
-													administration, ranking, and
-													MLH administration in-line
-													with the MLH Privacy Policy.
-													I further agree to the terms
-													of both the{" "}
-													<Link
-														target="_blank"
-														className="underline"
-														href={
-															"https://github.com/MLH/mlh-policies/blob/main/contest-terms.md"
-														}
-													>
-														MLH Contest Terms and
-														Conditions
-													</Link>{" "}
-													and the{" "}
-													<Link
-														target="_blank"
-														className="underline"
-														href={
-															"https://mlh.io/privacy"
-														}
-													>
-														MLH Privacy Policy
-													</Link>
-													. *
-												</FormLabel>
-											</div>
-										</FormItem>
-									)}
-								/>
-								<FormField
-									control={form.control}
-									name="isEmailable"
-									render={({ field }) => (
-										<FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
-											<FormControl>
-												<Checkbox
-													checked={field.value ?? false}
-													onCheckedChange={
-														field.onChange
-													}
-												/>
-											</FormControl>
-											<div className="space-y-1 leading-none">
-												<FormLabel>
-													I authorize MLH to send me
-													an email where I can further
-													opt into the MLH Hacker,
-													Events, or Organizer
-													Newsletters and other
-													communications from MLH.
-												</FormLabel>
-											</div>
-										</FormItem>
-									)}
-								/>
 							</FormGroupWrapper>
 							<FormGroupWrapper title="University Info">
 								<div

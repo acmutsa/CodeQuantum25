@@ -122,7 +122,6 @@ CREATE TABLE `user_common_data` (
 	`gender` text(50) NOT NULL,
 	`race` text(75) NOT NULL,
 	`ethnicity` text(50) NOT NULL,
-	`shirt_size` text(5) NOT NULL,
 	`diet_restrictions` text DEFAULT '[]' NOT NULL,
 	`accommodation_note` text,
 	`discord` text(60),
@@ -159,8 +158,8 @@ CREATE TABLE `user_hacker_data` (
 	`group` integer NOT NULL,
 	`team_id` text(50),
 	`points` integer DEFAULT 0 NOT NULL,
-	`has_accepted_mlh_coc` integer NOT NULL,
-	`has_shared_data_with_mlh` integer NOT NULL,
-	`is_emailable` integer NOT NULL,
+	`has_accepted_mlh_coc` integer,
+	`has_shared_data_with_mlh` integer,
+	`is_emailable` integer,
 	FOREIGN KEY (`clerk_id`) REFERENCES `user_common_data`(`clerk_id`) ON UPDATE no action ON DELETE cascade
 );

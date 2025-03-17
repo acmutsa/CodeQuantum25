@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "6",
-      "when": 1740069435681,
-      "tag": "0000_chilly_lady_mastermind",
-      "breakpoints": true
-    },
-    {
-      "idx": 19,
-      "version": "7",
-      "when": 1739150308623,
-      "tag": "0019_far_mysterio",
-      "breakpoints": true
-    },
-    {
-      "idx": 20,
-      "version": "7",
-      "when": 1739150658817,
-      "tag": "0020_windy_spencer_smythe",
-      "breakpoints": true
-    },
-    {
-      "idx": 21,
-      "version": "7",
-      "when": 1739929160744,
-      "tag": "0021_productive_dormammu",
+      "when": 1741155042577,
+      "tag": "0000_lazy_typhoid_mary",
       "breakpoints": true
     }
   ]

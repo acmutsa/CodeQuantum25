@@ -209,7 +209,7 @@ export default function Hero() {
 								animate={{ opacity: 1 }}
 								transition={{ delay: 1 }}
 							>
-								@ UTSA Business Building
+								@ UTSA Biotechnology Science and Engineering Building (BSE)
 							</motion.p>
 						</motion.div>
 					</motion.div>
