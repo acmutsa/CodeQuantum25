@@ -130,7 +130,7 @@ export default function About() {
 									Where We Will Be
 								</h3>
 								<p className="text-gray-600">
-									CodeQuantum will be hosted on UTSA’s main campus in the Student Union Denman Ballroom
+									CodeQuantum will be hosted on UTSA’s main campus in the Biotechnology Science and Engineering Building (BSE)
 								</p>
 							</CardContent>
 						</Card>

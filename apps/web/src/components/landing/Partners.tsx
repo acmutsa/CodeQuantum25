@@ -16,12 +16,30 @@ export default async function Partners() {
 		logo: "/img/landing/Break_Through_Tech_Logo.svg",
 		url: "https://www.breakthroughtech.org/",
 		tier: "Sponsor",
-	};
+	}
+	const HEB: Partner = {
+		name: "H-E-B",
+		logo: "/img/landing/H-E-B_logo.svg",
+		url: "https://www.heb.com/",
+		tier: "Sponsor",
+	}
+	const Dell: Partner = {
+		name: "Dell",
+		logo: "/img/landing/Dell_Technologies_logo.svg",
+		url: "https://www.dell.com/",
+		tier: "Sponsor",
+	}
 	const StandOutStickers: Partner = {
 		name: "Stand Out Stickers",
 		logo: "/img/landing/standout-stickers-logo.svg",
 		url: "https://www.standoutstickers.com",
-		tier: "InKind"
+		tier: "InKind",
+	}
+	const InterviewCake: Partner = {
+		name: "Interview Cake",
+		logo: "/img/landing/cake_logo_blue_gray.svg",
+		url: "https://www.interviewcake.com/",
+		tier: "InKind",
 	}
 
 	return (
@@ -43,7 +61,12 @@ export default async function Partners() {
 
       <div className="z-20 flex justify-center items-center w-full h-full pt-12 gap-5">
         <PartnerCard partner={BreakThruTech} is_title={true}/>
-		  <PartnerCard partner={StandOutStickers} is_title={true}/>
+		  <PartnerCard partner={HEB} is_title={true}/>
+		  <PartnerCard partner={Dell} is_title={true}/>
+	  </div>
+			<div className="z-20 flex justify-center items-center w-full h-full pt-12 gap-5">
+			<PartnerCard partner={StandOutStickers} is_title={true}/>
+		  <PartnerCard partner={InterviewCake} is_title={true}/>
       </div>
 
       {/*<div className="z-20 grid place-items-center justify-center grid-flow-row grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-10 lg:gap-12 w-[98%] pt-8 sm:pt-10 md:pt-[3.5rem] lg:pt-[4rem] pb-2 sm:pb-8 lg:pb-12 overflow-y-hidden overflow-x-visible no-scrollbar">*/}
