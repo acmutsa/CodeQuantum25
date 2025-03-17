@@ -75,13 +75,6 @@ export const hackerRegistrationFormValidator = z
 				message: "Phone number must be a valid phone number",
 			}),
 		countryOfResidence: z.enum(countryList, defaultSelectPrettyError),
-		hasAcceptedMLHCoC: z.boolean().refine((val) => val === true, {
-			message: "You must accept the MLH Code of Conduct.",
-		}),
-		hasSharedDataWithMLH: z.boolean().refine((val) => val === true, {
-			message:
-				"You must accept the MLH Terms & Conditions and Privacy Policy.",
-		}),
 		university: z.enum(c.registration.schools, defaultSelectPrettyError),
 		schoolID: z
 			.string()
@@ -115,10 +108,6 @@ export const hackerRegistrationFormValidator = z
 			),
 		heardFrom: z.enum(
 			c.registration.heardFromOptions,
-			defaultSelectPrettyError,
-		),
-		shirtSize: z.enum(
-			c.registration.shirtSizeOptions,
 			defaultSelectPrettyError,
 		),
 		dietRestrictions: z
