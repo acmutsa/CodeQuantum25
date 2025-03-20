@@ -37,7 +37,7 @@ export default async function Partners() {
 	}
 	const InterviewCake: Partner = {
 		name: "Interview Cake",
-		logo: "/img/landing/cake_logo_blue_gray.svg",
+		logo: "/img/landing/interview-cake-logo.svg",
 		url: "https://www.interviewcake.com/",
 		tier: "InKind",
 	}
