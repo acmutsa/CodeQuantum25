@@ -75,10 +75,10 @@ export default function About() {
 				</motion.div>
 
 				{/* Cards Grid */}
-				<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+				<div className="grid gap-8 md:grid-cols-2">
 					{/* Card 1 */}
-					<motion.div variants={itemVariants}>
-						<Card className="group bg-cqWhite transition-shadow duration-300 hover:shadow-xl">
+					<motion.div variants={itemVariants} className="md:col-span-2">
+						<Card className="group bg-cqWhite transition-shadow duration-300 hover:shadow-xl h-full ">
 							<CardContent className="p-6">
 								<motion.div
 									className="mb-4 text-red-500"
@@ -98,7 +98,7 @@ export default function About() {
 
 					{/* Card 2 */}
 					<motion.div variants={itemVariants}>
-						<Card className="group bg-cqWhite transition-shadow duration-300 hover:shadow-xl">
+						<Card className="group bg-cqWhite transition-shadow duration-300 hover:shadow-xl h-full">
 							<CardContent className="p-6">
 								<motion.div
 									className="mb-4 text-amber-500"
@@ -118,7 +118,7 @@ export default function About() {
 
 					{/* Card 3 */}
 					<motion.div variants={itemVariants}>
-						<Card className="group bg-cqWhite transition-shadow duration-300 hover:shadow-xl">
+						<Card className="group bg-cqWhite transition-shadow duration-300 hover:shadow-xl h-full">
 							<CardContent className="p-6">
 								<motion.div
 									className="mb-4 text-blue-500"

@@ -126,7 +126,7 @@ export default function Team() {
 		{
 			fname: "Cesar",
 			lname: "Diab",
-			imgLink: "/img/team/Hacker Experience/cesar.png",
+			imgLink: "/img/team/Hacker-Experience/cesar.png",
 			role: "Hacker Experience",
 			color: "#4f4e6c",
 			linkedin: "",
@@ -136,7 +136,7 @@ export default function Team() {
 		{
 			fname: "Cassandra",
 			lname: "Gomez",
-			imgLink: "/img/team/Hacker Experience/cassandra.png",
+			imgLink: "/img/team/Hacker-Experience/cassandra.png",
 			role: "Hacker Experience",
 			color: "#4f4e6c",
 			linkedin: "",
@@ -146,7 +146,7 @@ export default function Team() {
 		{
 			fname: "Katy",
 			lname: "Kettel",
-			imgLink: "/img/team/Public Relations/katy.png",
+			imgLink: "/img/team/Public-Relations/katy.png",
 			role: "Public Relations",
 			color: "#b791cc",
 			linkedin: "",
@@ -156,7 +156,7 @@ export default function Team() {
 		{
 			fname: "Kailey",
 			lname: "Perrino",
-			imgLink: "/img/team/Public Relations/kailey.png",
+			imgLink: "/img/team/Public-Relations/kailey.png",
 			role: "Public Relations",
 			color: "#b791cc",
 			linkedin: "",
