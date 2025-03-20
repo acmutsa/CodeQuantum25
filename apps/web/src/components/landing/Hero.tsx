@@ -15,6 +15,7 @@ export default function Hero() {
 		const handleMouseMove = (e: MouseEvent) => {
 			setMousePosition({ x: e.clientX, y: e.clientY })
 		}
+		console.log("trying to access window")
 		window.addEventListener('mousemove', handleMouseMove)
 		return () => window.removeEventListener('mousemove', handleMouseMove)
 	}, [])
