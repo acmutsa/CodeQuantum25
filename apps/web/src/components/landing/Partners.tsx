@@ -41,39 +41,21 @@ export default async function Partners() {
 		url: "https://www.interviewcake.com/",
 		tier: "InKind",
 	}
-
+	// fix mobile view for partners
 	return (
 		<section className="relative flex min-h-screen w-full flex-col items-center justify-center gap-y-10 bg-cqWhite">
-			{/*<div className="flex w-full flex-col items-center justify-center space-y-4">*/}
-			{/*	<h1 className="text-center text-4xl font-black md:text-5xl">*/}
-			{/*		Partners Sections*/}
-			{/*	</h1>*/}
-			{/*	<h3 className="px-4 text-center text-lg font-bold md:text-2xl lg:px-0">*/}
-			{/*		{*/}
-			{/*			"See the Partners Component inside components/landing/Partners for an example"*/}
-			{/*		}*/}
-			{/*	</h3>*/}
-			{/*</div>*/}
-			{/* Example Code of what our previous partner section looked like */}
-			<h1 className="z-20 text-4xl sm:text-5xl md:text-6xl font-bold font-oswald italic text-cqPurple text-center pt-7 sm:pb-8">
-        A Huge Thanks To Our Code Quantum Partners!
-      </h1>
-
-      <div className="z-20 flex justify-center items-center w-full h-full pt-12 gap-5">
-        <PartnerCard partner={BreakThruTech} is_title={true}/>
-		  <PartnerCard partner={HEB} is_title={true}/>
-		  <PartnerCard partner={Dell} is_title={true}/>
-	  </div>
-			<div className="z-20 flex justify-center items-center w-full h-full pt-12 gap-5">
-			<PartnerCard partner={StandOutStickers} is_title={true}/>
-		  <PartnerCard partner={InterviewCake} is_title={true}/>
-      </div>
-
-      {/*<div className="z-20 grid place-items-center justify-center grid-flow-row grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-10 lg:gap-12 w-[98%] pt-8 sm:pt-10 md:pt-[3.5rem] lg:pt-[4rem] pb-2 sm:pb-8 lg:pb-12 overflow-y-hidden overflow-x-visible no-scrollbar">*/}
-      {/*  {partnerData.partners.map((partner: Partner) => (*/}
-      {/*    <PartnerCard key={partner.name} partner={partner} is_title={false} />*/}
-      {/*  ))}*/}
-      {/*</div>*/}
+			<h1 className="z-20 pt-7 text-center font-oswald text-4xl font-bold italic text-cqPurple sm:pb-8 sm:text-5xl md:text-6xl">
+				A Huge Thanks To Our Code Quantum Partners!
+			</h1>
+			<div className="z-20 grid h-full grid-cols-2 sm:grid-cols-3 gap-5 px-2 pt-12 lg:px-0">
+				<PartnerCard partner={BreakThruTech} is_title={true} />
+				<PartnerCard partner={HEB} is_title={true} />
+				<PartnerCard partner={Dell} is_title={true} />
+			</div>
+			<div className="z-20 grid h-full grid-cols-2 gap-5 px-2 pt-12 lg:px-0">
+				<PartnerCard partner={StandOutStickers} is_title={true} />
+				<PartnerCard partner={InterviewCake} is_title={true} />
+			</div>
 		</section>
 	);
 }
