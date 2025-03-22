@@ -7,26 +7,15 @@ import { Button } from "../shadcn/ui/button"
 import Image from "next/image";
 
 export default function Hero() {
-	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 	const [isVisible, setIsVisible] = useState(false)
+	const [innerWidth, setInnerWidth] = useState(0)
+	const [innerHeight, setInnerHeight] = useState(0)
 
 	useEffect(() => {
 		setIsVisible(true)
-		const handleMouseMove = (e: MouseEvent) => {
-			setMousePosition({ x: e.clientX, y: e.clientY })
-		}
-		console.log("trying to access window")
-		window.addEventListener('mousemove', handleMouseMove)
-		return () => window.removeEventListener('mousemove', handleMouseMove)
+		setInnerWidth(window.innerWidth)
+		setInnerHeight(window.innerHeight)
 	}, [])
-
-	const calculateRotation = (x: number, y: number, rect: DOMRect) => {
-		const centerX = rect.left + rect.width / 2
-		const centerY = rect.top + rect.height / 2
-		const angleX = (y - centerY) / 30
-		const angleY = (centerX - x) / 30
-		return `rotateX(${angleX}deg) rotateY(${angleY}deg)`
-	}
 
 	const floatingIcons = [
 		{ Icon: Rabbit, color: "text-purple-500", delay: 0 },
@@ -49,8 +38,8 @@ export default function Hero() {
 						animate={{
 							opacity: [0.2, 0.5, 0.2],
 							scale: [1, 2, 1],
-							x: [Math.random() * window.innerWidth, Math.random() * window.innerWidth],
-							y: [Math.random() * window.innerHeight, Math.random() * window.innerHeight],
+							x: [Math.random() * innerWidth, Math.random() * innerWidth],
+							y: [Math.random() * innerHeight, Math.random() * innerHeight],
 						}}
 						transition={{
 							duration: Math.random() * 10 + 10,
@@ -113,7 +102,6 @@ export default function Hero() {
 								ease: "easeInOut",
 							}}
 						>
-							{/*<Rabbit className="w-16 h-16 text-purple-600 mx-auto" />*/}
 							<Image className={"mx-auto -my-8"} src={"/img/logo/CQFinalLogo.svg"} alt={"Logo"} width={256} height={256}/>
 						</motion.div>
 
@@ -154,7 +142,7 @@ export default function Hero() {
 									className="inline-block"
 									whileHover={{ scale: 1.05 }}
 								>
-									Register
+									Register Now!
 								</motion.span>
 								<motion.span
 									className="inline-block ml-2"
@@ -185,15 +173,6 @@ export default function Hero() {
 							style={{
 								transformStyle: "preserve-3d",
 							}}
-							// whileHover={{
-							// 	transform: (event) => {
-							// 		if (event.target instanceof HTMLElement) {
-							// 			const rect = event.target.getBoundingClientRect()
-							// 			return calculateRotation(mousePosition.x, mousePosition.y, rect)
-									/*}*/
-									// return "none"
-								/*},*/
-							/*}}*/
 							transition={{ type: "spring", stiffness: 400, damping: 30 }}
 						>
 							<motion.p
@@ -202,8 +181,9 @@ export default function Hero() {
 								animate={{ opacity: 1 }}
 								transition={{ delay: 0.8 }}
 							>
-								Saturday, March 29; 9:00 AM - 8:00 PM
+								Saturday, March 29 from 9:00 AM - 8:00 PM
 							</motion.p>
+							
 							<motion.p
 								className="text-purple-600 text-sm text-center mt-2"
 								initial={{ opacity: 0 }}
