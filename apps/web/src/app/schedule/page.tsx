@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import UserScheduleView from "@/components/schedule/UserScheduleView";
-import ScheduleTimeline from "./schedule-timeline";
+import ScheduleTimeline from "../dash/schedule/schedule-timeline";
 import Loading from "@/components/shared/Loading";
 import { getAllEvents } from "db/functions";
 import { getClientTimeZone } from "@/lib/utils/client/shared";
