@@ -3,8 +3,15 @@ import { motion } from "framer-motion";
 import { Crown, Sparkles, LinkedinIcon, GlobeIcon, GithubIcon } from "lucide-react";
 import Image from "next/image";
 import { Person } from "@/components/landing/Person";
+import { useState, useEffect } from "react";
 
 export default function Team() {
+	const [innerWidth, setInnerWidth] = useState(0)
+	const [innerHeight, setInnerHeight] = useState(0)
+	useEffect(() => {
+		setInnerWidth(window.innerWidth)
+		setInnerHeight(window.innerHeight)
+	}, [])
 	const containerVariants = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -27,28 +34,31 @@ export default function Team() {
 	}
 
 	const imageStyles = "rounded-lg border-4 drop-shadow-md hover:scale-110 duration-75 mb-2"
-	const iconStyles = "text-cqPurple hover:scale-[1.2] duration-75";
-
+	const TEAM_COLORS = {
+		DIRECTOR: "#e17d9e",
+		LOGISTICS: "#7b8f76",
+		DESIGN: "#f7c396",
+		TECH: "#87675d",
+		OUTREACH: "#e1897d",
+		HACKER_EXPERIENCE: "#4f4e6c",
+		PUBLIC_RELATIONS: "#b791cc",
+	}
 	const directors: Person[] = [
 		{
 			fname: "Iqra",
 			lname: "Abdullah",
 			imgLink: "/img/team/Directors/iqra.png",
 			role: "Director",
-			color: "#e17d9e",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.DIRECTOR,
+			
 		},
 		{
 			fname: "Anusha",
 			lname: "Abdulla",
 			imgLink: "/img/team/Directors/anusha.png",
 			role: "Co-Director",
-			color: "#e17d9e",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.DIRECTOR,
+			
 		}
 	]
 
@@ -58,122 +68,93 @@ export default function Team() {
 			lname: "Tran",
 			imgLink: "/img/team/Logistics/vivian.png",
 			role: "Logistics",
-			color: "#7b8f76",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.LOGISTICS,
 		},
 		{
 			fname: "Delina",
 			lname: "Yirgaalem",
 			imgLink: "/img/team/Logistics/delina.png",
 			role: "Logistics",
-			color: "#7b8f76",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.LOGISTICS,
 		},
 		{
 			fname: "Rashi",
 			lname: "Rautela",
 			imgLink: "/img/team/Logistics/rashi.png",
 			role: "Logistics",
-			color: "#7b8f76",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.LOGISTICS,
 		},
 		{
 			fname: "Durga",
 			lname: "Rajarajan",
 			imgLink: "/img/team/Design/durga.png",
 			role: "Design",
-			color: "#f7c396",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.DESIGN,
 		},
 		{
 			fname: "Jacob",
 			lname: "Ellerbrock",
 			imgLink: "/img/team/Tech/jacob.png",
 			role: "Tech",
-			color: "#87675d",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.TECH,
 		},
 		{
 			fname: "Christian",
 			lname: "Walker",
 			imgLink: "/img/team/Tech/christian.png",
 			role: "Tech",
-			color: "#87675d",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.TECH,
 		},
 		{
 			fname: "Reese",
 			lname: "Sylvester",
 			imgLink: "/img/team/Outreach/reese.png",
 			role: "Outreach",
-			color: "#e1897d",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.OUTREACH,
 		},
 		{
 			fname: "Cesar",
 			lname: "Diab",
 			imgLink: "/img/team/Hacker-Experience/cesar.png",
 			role: "Hacker Experience",
-			color: "#4f4e6c",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.HACKER_EXPERIENCE,
 		},
 		{
 			fname: "Cassandra",
 			lname: "Gomez",
 			imgLink: "/img/team/Hacker-Experience/cassandra.png",
 			role: "Hacker Experience",
-			color: "#4f4e6c",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.HACKER_EXPERIENCE,
+		},
+		{
+			fname: "Brooke",
+			lname: "Lane",
+			imgLink: "/img/team/Hacker-Experience/brooke.png",
+			role: "Public Relations",
+			color: TEAM_COLORS.PUBLIC_RELATIONS,
 		},
 		{
 			fname: "Katy",
 			lname: "Kettel",
 			imgLink: "/img/team/Public-Relations/katy.png",
 			role: "Public Relations",
-			color: "#b791cc",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.PUBLIC_RELATIONS,
 		},
 		{
 			fname: "Kailey",
 			lname: "Perrino",
 			imgLink: "/img/team/Public-Relations/kailey.png",
 			role: "Public Relations",
-			color: "#b791cc",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.PUBLIC_RELATIONS,
 		},
 		{
 			fname: "Russel",
 			lname: "Ogbor",
 			imgLink: "/img/team/Finance/russel.png",
 			role: "Finance",
-			color: "#4f7280",
-			linkedin: "",
-			website: "",
-			github: "",
+			color: TEAM_COLORS.PUBLIC_RELATIONS,
 		},
-	]
+	];
 
 	return (
 		<div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-purple-50 via-pink-50 to-purple-50 py-20">
@@ -187,8 +168,8 @@ export default function Team() {
 						animate={{
 							opacity: [0.2, 0.5, 0.2],
 							scale: [1, 2, 1],
-							x: [Math.random() * window.innerWidth, Math.random() * window.innerWidth],
-							y: [Math.random() * window.innerHeight, Math.random() * window.innerHeight],
+							x: [Math.random() * innerWidth, Math.random() * innerWidth],
+							y: [Math.random() * innerHeight, Math.random() * innerHeight],
 						}}
 						transition={{
 							duration: Math.random() * 10 + 10,
@@ -228,44 +209,31 @@ export default function Team() {
 					</p>
 				</motion.div>
 			</motion.div>
-
 			<div className={"flex justify-center"}>
-				<div className={"grid grid-cols-2 gap-8 sm:mx-2"}>
+				<div className={"grid grid-cols-2 gap-8 sm:mx-2 px-2"}>
 					{directors.map(director => {
 						return (
 							<div className={"flex-col justify-center"}>
-								<Image style={{borderColor: director.color}} className={`ml-1 lg:ml-2 xl:ml-4 ${imageStyles}`} src={director.imgLink} alt={`${director.fname} ${director.lname} image`} width={300} height={300}/>
-								<h2 style={{color: director.color}} className={"text-4xl text-center font-bold"}>{director.fname} {director.lname}</h2>
-								<h3 style={{color: director.color}} className={"sm:text-2xl text-3xl text-center mb-2 italic font-bold"}>{director.role}</h3>
-								<div className={"flex flex-row justify-evenly"}>
-									{director.linkedin && <a href={director.linkedin}><LinkedinIcon className={iconStyles}/></a>}
-									{director.website && <a href={director.website}><GlobeIcon className={iconStyles}/></a>}
-									{director.github && <a href={director.github}><GithubIcon className={iconStyles}/></a>}
-								</div>
+								<Image style={{borderColor: director.color}} className={`md:mb-5 ${imageStyles}`} src={director.imgLink} alt={`${director.fname} ${director.lname} image`} width={300} height={300}/>
+								<h2 style={{color: director.color}} className={"text-3xl sm:text-4xl text-center font-bold"}>{director.fname} {director.lname}</h2>
+								<h3 style={{color: director.color}} className={"text-2xl md:text-3xl text-center mb-2 italic font-bold"}>{director.role}</h3>
 							</div>
 						)
 					})}
 				</div>
 			</div>
-			<div className={"flex justify-center mt-4"}>
-				<div className={"grid grid-cols-4 gap-8 sm:mx-2"}>
-					{team.map(organizer => {
-						return (
-							<div className={"flex-col"}>
-								<Image style={{borderColor: organizer.color}} className={`lg:ml-4 xl:ml-12 ${imageStyles}`} src={organizer.imgLink} alt={`${organizer.fname} ${organizer.lname} image`} width={200} height={200}/>
+			<div className={"flex justify-center items-center mt-4"}>
+				<div className={"grid grid-cols-3 lg:grid-cols-4 gap-8 sm:mx-2 px-2 lg:px-0"}>
+					{team.map(organizer => (
+							<div className={"flex flex-col w-full items-center"}>
+								<Image style={{borderColor: organizer.color}} className={`${imageStyles}`} src={organizer.imgLink} alt={`${organizer.fname} ${organizer.lname} image`} width={200} height={200} priority/>
 								<h2 style={{color: organizer.color}} className={"text-xl lg:text-3xl text-center font-semibold"}>{organizer.fname} {organizer.lname}</h2>
 								<h3 style={{color: organizer.color}} className={"text-md lg:text-2xl text-center mb-2 italic font-semibold"}>{organizer.role}</h3>
-								<div className={"flex flex-row justify-evenly"}>
-									{organizer.linkedin && <a href={organizer.linkedin}><LinkedinIcon className={iconStyles}/></a>}
-									{organizer.website && <a href={organizer.website}><GlobeIcon className={iconStyles}/></a>}
-									{organizer.github && <a href={organizer.github}><GithubIcon className={iconStyles}/></a>}
-								</div>
 							</div>
 						)
-					})}
+					)}
 				</div>
 			</div>
-
 		</div>
 	)
 }
