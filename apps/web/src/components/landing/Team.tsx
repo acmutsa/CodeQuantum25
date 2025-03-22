@@ -213,7 +213,7 @@ export default function Team() {
 				<div className={"grid grid-cols-2 gap-8 sm:mx-2 px-2"}>
 					{directors.map(director => {
 						return (
-							<div className={"flex-col justify-center"}>
+							<div className={"flex-col justify-center"} key={`${director.fname}-${director.lname}`}>
 								<Image style={{borderColor: director.color}} className={`md:mb-5 ${imageStyles}`} src={director.imgLink} alt={`${director.fname} ${director.lname} image`} width={300} height={300}/>
 								<h2 style={{color: director.color}} className={"text-3xl sm:text-4xl text-center font-bold"}>{director.fname} {director.lname}</h2>
 								<h3 style={{color: director.color}} className={"text-2xl md:text-3xl text-center mb-2 italic font-bold"}>{director.role}</h3>
@@ -225,7 +225,7 @@ export default function Team() {
 			<div className={"flex justify-center items-center mt-4"}>
 				<div className={"grid grid-cols-3 lg:grid-cols-4 gap-8 sm:mx-2 px-2 lg:px-0"}>
 					{team.map(organizer => (
-							<div className={"flex flex-col w-full items-center"}>
+							<div className={"flex flex-col w-full items-center"} key={`${organizer.fname}-${organizer.lname}`}>
 								<Image style={{borderColor: organizer.color}} className={`${imageStyles}`} src={organizer.imgLink} alt={`${organizer.fname} ${organizer.lname} image`} width={200} height={200} priority/>
 								<h2 style={{color: organizer.color}} className={"text-xl lg:text-3xl text-center font-semibold"}>{organizer.fname} {organizer.lname}</h2>
 								<h3 style={{color: organizer.color}} className={"text-md lg:text-2xl text-center mb-2 italic font-semibold"}>{organizer.role}</h3>
