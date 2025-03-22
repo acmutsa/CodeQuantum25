@@ -4,8 +4,15 @@ import { motion } from "framer-motion"
 import { Rabbit, Crown, Sparkles, HeartIcon, Clock, CupSoda } from "lucide-react"
 import { Button } from "../shadcn/ui/button"
 import { Card } from "../shadcn/ui/card"
+import { useState, useEffect } from "react"
 
 export default function WorkWithUs() {
+	const [innerWidth, setInnerWidth] = useState(0)
+		const [innerHeight, setInnerHeight] = useState(0)
+		useEffect(() => {
+			setInnerWidth(window.innerWidth)
+			setInnerHeight(window.innerHeight)
+		}, [])
 	const containerVariants = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -39,8 +46,8 @@ export default function WorkWithUs() {
 						animate={{
 							opacity: [0.2, 0.5, 0.2],
 							scale: [1, 2, 1],
-							x: [Math.random() * window.innerWidth, Math.random() * window.innerWidth],
-							y: [Math.random() * window.innerHeight, Math.random() * window.innerHeight],
+							x: [Math.random() * innerWidth, Math.random() * innerWidth],
+							y: [Math.random() * innerHeight, Math.random() * innerHeight],
 						}}
 						transition={{
 							duration: Math.random() * 10 + 10,
