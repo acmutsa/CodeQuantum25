@@ -9,9 +9,8 @@ const nextConfig = {
 	swcMinify: true,
 	transpilePackages: ["db"],
 	images: {
-		// loader: "custom",
-		// loaderFile: "./imageLoader.ts",
-		unoptimized: true,
+		loader: "custom",
+		loaderFile: "./imageLoader.ts",
 		domains: [
 			"images.clerk.dev",
 			"www.gravatar.com",
