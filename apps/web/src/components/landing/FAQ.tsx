@@ -9,6 +9,7 @@ import {
 	CupSoda,
 	Crown,
 	Key,
+	MessageSquareMore as QuestionIcon,
 } from "lucide-react";
 import {
 	Accordion,
@@ -25,22 +26,24 @@ export default function FAQ() {
 		{
 			icon: <Rabbit className="h-6 w-6" />,
 			question: "What if I am not a gender minority?",
-			answer: "Anyone can sign up to participate as a hacker at Code Quantum. However, keep in mind that a lot of the hackathon content will revolve around women and non-binary experiences to reflect our mission of uniting and empowering women and non-binary individuals in STEM. If you do not identify as female or non-binary but consider yourself an ally of our cause, we would love to have you as a mentor or volunteer!",
+			answer: "Anyone is welcome to sign up as a hacker at Code Quantum. However, much of the hackathon’s content will center around the experiences of women and non-binary individuals, aligning with our mission to unite and empower them in STEM. If you do not identify as female or non-binary but support our cause as an ally, we’d love to have you join us as a mentor or volunteer!",
 		},
 		{
 			icon: <HeartIcon className="h-6 w-6" />,
 			question: "What if I am not a beginner?",
-			answer: "We want to focus on beginners, and judging will be more geared toward them as well. While we love your desire to participate and compete, we would love to have you as a mentor or judge to help out the beginner hackers!",
+			answer: "While we appreicate your desire to compete, our event is purposed for those who are just starting out coding. However, we would love to have you as a mentor or judge to help out the beginner hackers!",
 		},
 		{
 			icon: <CupSoda className="h-6 w-6" />,
-			question: "What if I have never coded before, or have never done a project?",
-			answer: "That is okay! We will have mentors available to help you with any problem you have, along with guides that can help you out with whatever you are trying to build!",
+			question:
+				"What if I have never coded before, or have never done a project?",
+			answer: "No worries! We’ll have mentors available to assist you with any challenges you encounter, as well as guides to support you in building your project.",
 		},
 		{
 			icon: <Crown className="h-6 w-6" />,
-			question: "I'm not a Computer Science major. Can I still participate?",
-			answer: "Of course! Code Quantum is open to any majors as we are a beginner friendly hack day. We will have tutorials and guides for basic projects to follow or try your own project.",
+			question:
+				"I'm not a Computer Science major. Can I still participate?",
+			answer: "Of course! Code Quantum is open to all majors, as we are a beginner-friendly hackday. We’ll provide tutorials and guides for basic projects, or you can choose to work on your own idea.",
 		},
 		{
 			icon: <Key className="h-6 w-6" />,
@@ -70,18 +73,8 @@ export default function FAQ() {
 		},
 	};
 
-	const floatAnimation = {
-		y: [-5, 5],
-		transition: {
-			duration: 2,
-			repeat: Infinity,
-			repeatType: "reverse",
-			ease: "easeInOut",
-		},
-	};
-
 	return (
-		<div className="min-h-screen bg-cqWhite px-4 py-20">
+		<div className="min-h-screen bg-cqWhite px-4 py-12">
 			<motion.div
 				className="mx-auto max-w-4xl"
 				variants={containerVariants}
@@ -93,13 +86,7 @@ export default function FAQ() {
 					className="mb-16 text-center"
 					variants={itemVariants}
 				>
-					<motion.div
-						className="mb-4 inline-block"
-						// animate={floatAnimation}
-					>
-						<CupSoda className="h-12 w-12 text-purple-600" />
-					</motion.div>
-					<h2 className="mb-4 text-6xl font-bold text-purple-800 md:text-6xl font-alice">
+					<h2 className="mb-4 font-alice text-6xl font-bold text-purple-800 md:text-6xl">
 						Frequently Asked Questions
 					</h2>
 				</motion.div>
@@ -118,8 +105,10 @@ export default function FAQ() {
 								className="overflow-hidden rounded-lg border border-purple-100 bg-white/80 backdrop-blur-sm"
 							>
 								<AccordionTrigger className="mh-2 group flex justify-between px-6 py-4 hover:no-underline">
-									<div className="flex items-center gap-4">
-										<motion.div
+									{/* gap-4 */}
+									<div className="flex items-center">
+										{/* commented out to prevent icon rendering */}
+										{/* <motion.div
 											className={`text-purple-600 transition-colors duration-200 ${
 												hoveredIcon === index
 													? "text-purple-800"
@@ -138,7 +127,7 @@ export default function FAQ() {
 											transition={{ duration: 0.3 }}
 										>
 											{item.icon}
-										</motion.div>
+										</motion.div> */}
 										<span className="text-left font-semibold text-purple-800 group-hover:text-purple-900">
 											{item.question}
 										</span>
@@ -172,9 +161,15 @@ export default function FAQ() {
 							className="text-lg italic text-purple-800"
 							whileHover={{ scale: 1.02 }}
 						>
-							If you have any other questions, join our discord to talk to an organizer:
+							If you have any other questions, join our discord to
+							talk to an organizer:
 						</motion.p>
-						<a className="mt-2 text-sm text-purple-600" href={c.links.discord}>{c.links.discord}</a>
+						<a
+							className="mt-2 text-sm text-purple-600"
+							href={c.links.discord}
+						>
+							{c.links.discord}
+						</a>
 					</div>
 				</motion.div>
 			</motion.div>

@@ -1,5 +1,6 @@
 import { fileURLToPath } from "node:url";
 import createJiti from "jiti";
+import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
 const jiti = createJiti(fileURLToPath(import.meta.url));
 
 jiti("./src/env");
@@ -9,7 +10,9 @@ const nextConfig = {
 	swcMinify: true,
 	transpilePackages: ["db"],
 	images: {
-		unoptimized:true,
+		loader: "custom",
+		loaderFile: "./imageLoader.ts",
+		// unoptimized: true,
 		domains: [
 			"images.clerk.dev",
 			"www.gravatar.com",
@@ -29,5 +32,9 @@ const nextConfig = {
 		},
 	},
 };
+
+if (process.env.NODE_ENV === "development") {
+	await setupDevPlatform();
+}
 
 export default nextConfig;
