@@ -15,9 +15,6 @@ export default function cloudflareLoader({
 		console.log("returning with properties", { src, width, quality });
 		return src;
 	}
-  if (src.endsWith(".svg")) {
-    return src; // Return SVGs as is
-  }
 	const params = [`width=${width}`];
 	if (quality) {
 		params.push(`quality=${quality}`);
