@@ -1,21 +1,29 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Clock, Heart, Rabbit, CupSoda, Crown, Key, Sparkles } from 'lucide-react'
-import { Button } from "../shadcn/ui/button"
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+	Clock,
+	Heart,
+	Rabbit,
+	CupSoda,
+	Crown,
+	Key,
+	Sparkles,
+} from "lucide-react";
+import { Button } from "../shadcn/ui/button";
 import Image from "next/image";
 
 export default function Hero() {
-	const [isVisible, setIsVisible] = useState(false)
-	const [innerWidth, setInnerWidth] = useState(0)
-	const [innerHeight, setInnerHeight] = useState(0)
+	const [isVisible, setIsVisible] = useState(false);
+	const [innerWidth, setInnerWidth] = useState(0);
+	const [innerHeight, setInnerHeight] = useState(0);
 
 	useEffect(() => {
-		setIsVisible(true)
-		setInnerWidth(window.innerWidth)
-		setInnerHeight(window.innerHeight)
-	}, [])
+		setIsVisible(true);
+		setInnerWidth(window.innerWidth);
+		setInnerHeight(window.innerHeight);
+	}, []);
 
 	const floatingIcons = [
 		{ Icon: Rabbit, color: "text-purple-500", delay: 0 },
@@ -24,7 +32,7 @@ export default function Hero() {
 		{ Icon: CupSoda, color: "text-blue-500", delay: 0.6 },
 		{ Icon: Crown, color: "text-purple-600", delay: 0.8 },
 		{ Icon: Key, color: "text-green-500", delay: 1 },
-	]
+	];
 
 	return (
 		<div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-purple-50 via-pink-50 to-purple-50">
@@ -38,8 +46,14 @@ export default function Hero() {
 						animate={{
 							opacity: [0.2, 0.5, 0.2],
 							scale: [1, 2, 1],
-							x: [Math.random() * innerWidth, Math.random() * innerWidth],
-							y: [Math.random() * innerHeight, Math.random() * innerHeight],
+							x: [
+								Math.random() * innerWidth,
+								Math.random() * innerWidth,
+							],
+							y: [
+								Math.random() * innerHeight,
+								Math.random() * innerHeight,
+							],
 						}}
 						transition={{
 							duration: Math.random() * 10 + 10,
@@ -47,40 +61,46 @@ export default function Hero() {
 							delay: Math.random() * 5,
 						}}
 					>
-						<Sparkles className="w-4 h-4 text-purple-300" />
+						<Sparkles className="h-4 w-4 text-purple-300" />
 					</motion.div>
 				))}
 			</div>
 
 			{/* Main Content */}
-			<div className="relative container mx-auto px-4 py-32">
-				<div className="max-w-6xl mx-auto">
+			<div className="container relative mx-auto px-4 py-32">
+				<div className="mx-auto max-w-6xl">
 					{/* Floating Icons */}
 					<div className="absolute inset-0">
 						<AnimatePresence>
-							{isVisible && floatingIcons.map(({ Icon, color, delay }, index) => (
-								<motion.div
-									key={index}
-									className={`absolute ${color}`}
-									initial={{ opacity: 0, y: 50 }}
-									animate={{
-										opacity: [0.5, 1, 0.5],
-										y: [-10, 10, -10],
-										x: index % 2 === 0 ? [-10, 10, -10] : [10, -10, 10],
-									}}
-									transition={{
-										duration: 4,
-										repeat: Infinity,
-										delay: delay,
-									}}
-									style={{
-										left: `${(index * 20) + 10}%`,
-										top: `${Math.sin(index) * 20 + 50}%`,
-									}}
-								>
-									<Icon className="w-8 h-8" />
-								</motion.div>
-							))}
+							{isVisible &&
+								floatingIcons.map(
+									({ Icon, color, delay }, index) => (
+										<motion.div
+											key={index}
+											className={`absolute ${color}`}
+											initial={{ opacity: 0, y: 50 }}
+											animate={{
+												opacity: [0.5, 1, 0.5],
+												y: [-10, 10, -10],
+												x:
+													index % 2 === 0
+														? [-10, 10, -10]
+														: [10, -10, 10],
+											}}
+											transition={{
+												duration: 4,
+												repeat: Infinity,
+												delay: delay,
+											}}
+											style={{
+												left: `${index * 20 + 10}%`,
+												top: `${Math.sin(index) * 20 + 50}%`,
+											}}
+										>
+											<Icon className="h-8 w-8" />
+										</motion.div>
+									),
+								)}
 						</AnimatePresence>
 					</div>
 
@@ -92,7 +112,7 @@ export default function Hero() {
 						transition={{ duration: 0.8 }}
 					>
 						<motion.div
-							className="inline-block mb-4"
+							className="mb-4 inline-block"
 							animate={{
 								rotate: [0, 10, -10, 0],
 							}}
@@ -102,11 +122,17 @@ export default function Hero() {
 								ease: "easeInOut",
 							}}
 						>
-							<Image className={"mx-auto -my-8"} src={"/img/logo/CQFinalLogo.svg"} alt={"Logo"} width={256} height={256}/>
+							<Image
+								className={"-my-8 mx-auto"}
+								src={"/img/logo/CQFinalLogo.svg"}
+								alt={"Logo"}
+								width={256}
+								height={256}
+							/>
 						</motion.div>
 
 						<motion.h1
-							className="text-5xl md:text-9xl font-bold text-purple-800 mb-6 font-alice"
+							className="mb-6 font-alice text-5xl font-bold text-purple-800 md:text-9xl"
 							style={{
 								perspective: 1000,
 							}}
@@ -119,7 +145,7 @@ export default function Hero() {
 						</motion.h1>
 
 						<motion.p
-							className="text-6xl md:text-6xl text-purple-600 mb-8 max-w-2xl mx-auto font-alice"
+							className="mx-auto mb-8 max-w-2xl font-alice text-6xl text-purple-600 md:text-6xl"
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							transition={{ delay: 0.2 }}
@@ -128,75 +154,79 @@ export default function Hero() {
 						</motion.p>
 
 						<motion.div
-							className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+							className="flex flex-col items-center justify-center gap-4 sm:flex-row"
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0.4 }}
 						>
 							<a href={"/register"}>
-							<Button
-								size="lg"
-								className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-[0_0_15px_rgba(147,51,234,0.5)] group min-w-[270px]"
-							>
-								<motion.span
-									className="inline-block"
-									whileHover={{ scale: 1.05 }}
+								<Button
+									size="lg"
+									className="group min-w-[270px] rounded-full bg-purple-600 px-8 py-6 text-lg text-white transition-all duration-300 hover:bg-purple-700 hover:shadow-[0_0_15px_rgba(147,51,234,0.5)]"
 								>
-									Register Now!
-								</motion.span>
-								<motion.span
-									className="inline-block ml-2"
-									animate={{
-										x: [0, 5, 0],
-									}}
-									transition={{
-										duration: 1.5,
-										repeat: Infinity,
-									}}
-								>
-									→
-								</motion.span>
-							</Button>
+									<motion.span
+										className="inline-block"
+										whileHover={{ scale: 1.05 }}
+									>
+										Register Now!
+									</motion.span>
+									<motion.span
+										className="ml-2 inline-block"
+										animate={{
+											x: [0, 5, 0],
+										}}
+										transition={{
+											duration: 1.5,
+											repeat: Infinity,
+										}}
+									>
+										→
+									</motion.span>
+								</Button>
 							</a>
 						</motion.div>
 					</motion.div>
 
 					{/* Animated Card */}
 					<motion.div
-						className="mt-16 relative perspective-1000"
+						className="perspective-1000 relative mt-16"
 						initial={{ opacity: 0, y: 50 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.6 }}
 					>
 						<motion.div
-							className="mx-auto max-w-lg bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-purple-100"
+							className="mx-auto max-w-lg rounded-xl border border-purple-100 bg-white/80 p-8 shadow-lg backdrop-blur-sm"
 							style={{
 								transformStyle: "preserve-3d",
 							}}
-							transition={{ type: "spring", stiffness: 400, damping: 30 }}
+							transition={{
+								type: "spring",
+								stiffness: 400,
+								damping: 30,
+							}}
 						>
 							<motion.p
-								className="text-purple-800 text-lg italic text-center"
+								className="text-center text-lg italic text-purple-800"
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								transition={{ delay: 0.8 }}
 							>
 								Saturday, March 29 from 9:00 AM - 8:00 PM
 							</motion.p>
-							
+
 							<motion.p
-								className="text-purple-600 text-sm text-center mt-2"
+								className="mt-2 text-center text-sm text-purple-600"
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								transition={{ delay: 1 }}
 							>
-								@ UTSA Biotechnology Science and Engineering Building (BSE)
+								@ UTSA Biotechnology Science and Engineering
+								Building (BSE)
 							</motion.p>
 						</motion.div>
 					</motion.div>
 				</div>
 			</div>
 		</div>
-	)
+	);
 }
-

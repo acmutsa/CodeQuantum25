@@ -19,9 +19,9 @@ const oswald = Oswald({
 });
 
 const alice = localFont({
-	src: '../../public/fonts/alice.ttf',
-	variable: '--font-alice',
-})
+	src: "../../public/fonts/alice.ttf",
+	variable: "--font-alice",
+});
 
 export default function Home() {
 	return (
@@ -31,9 +31,9 @@ export default function Home() {
 			<main className="overflow-x-hidden">
 				<Hero />
 				<About />
-				<FAQ/>
+				<FAQ />
 				<Partners />
-				<Team/>
+				<Team />
 				<WorkWithUs />
 				<Footer />
 			</main>

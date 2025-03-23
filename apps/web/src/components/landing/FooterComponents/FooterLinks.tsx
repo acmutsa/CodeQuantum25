@@ -20,7 +20,7 @@ export default function FooterLinks({
 			<div className="col-span-2 flex w-full lg:col-span-1 lg:hidden">
 				<DropdownMenu>
 					<DropdownMenuTrigger className="text-md mx-auto font-bold">
-						<h1 className="text-cqYellow text-xl">{title}</h1>
+						<h1 className="text-xl text-cqYellow">{title}</h1>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent className="bg-white">
 						{data.map(({ name, link }, idx) => (
@@ -37,13 +37,13 @@ export default function FooterLinks({
 				</DropdownMenu>
 			</div>
 			<div className="hidden flex-col lg:flex">
-				<h1 className="text-cqYellow mb-2 text-2xl font-bold">
+				<h1 className="mb-2 text-2xl font-bold text-cqYellow">
 					{title}
 				</h1>
 				{data.map(({ link, name }, idx) => (
 					<Link
 						href={link}
-						className="text-cqWhite text-sm hover:underline"
+						className="text-sm text-cqWhite hover:underline"
 						key={idx}
 					>
 						<h1 className="font-semibold">{name}</h1>

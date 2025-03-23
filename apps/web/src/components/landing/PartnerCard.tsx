@@ -74,11 +74,11 @@ function PartnerCard({
 			<h2
 				className={`w-full text-center transition delay-100 duration-300 ease-in-out ${
 					is_title ? "pb-8" : "pb-4"
-				} invisible group-hover:visible group-hover:translate-y-4 text-cqPurple`}
+				} invisible text-cqPurple group-hover:visible group-hover:translate-y-4`}
 			>
 				{partner?.name}
 			</h2>
-			<h2 className="invisible w-full pb-4 text-center transition delay-75 duration-300 ease-in-out group-hover:visible group-hover:translate-y-4 text-cqBlue">
+			<h2 className="invisible w-full pb-4 text-center text-cqBlue transition delay-75 duration-300 ease-in-out group-hover:visible group-hover:translate-y-4">
 				{partner?.tier}
 			</h2>
 		</Link>

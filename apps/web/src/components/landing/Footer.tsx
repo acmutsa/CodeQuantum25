@@ -8,7 +8,7 @@ import ManagedByHackkit from "./FooterComponents/ManagedByHackKit";
 
 export default function Footer() {
 	return (
-		<section className="bg-cqBlue min-h-[25vh] w-full items-center justify-center border-t-2 border-muted-foreground p-1 py-8 sm:p-8 md:px-10">
+		<section className="min-h-[25vh] w-full items-center justify-center border-t-2 border-muted-foreground bg-cqBlue p-1 py-8 sm:p-8 md:px-10">
 			<div className="grid grid-cols-2 gap-y-8 sm:grid-cols-4 md:justify-items-center lg:grid-cols-5 lg:justify-items-start">
 				<div className="col-span-2 row-span-1 flex items-center justify-self-center font-black sm:row-span-3 lg:row-span-1 lg:justify-self-start">
 					<Image
@@ -19,8 +19,14 @@ export default function Footer() {
 						height={50}
 					/>
 					<div className={"flex flex-col"}>
-						<h1 className={"text-cqOrange pl-0 pr-2 text-3xl sm:text-4xl"}>Code Quantum</h1>
-						<h1 className="text-cqOrange pl-0 pr-2 text-2xl sm:text-xl">
+						<h1
+							className={
+								"pl-0 pr-2 text-3xl text-cqOrange sm:text-4xl"
+							}
+						>
+							Code Quantum
+						</h1>
+						<h1 className="pl-0 pr-2 text-2xl text-cqOrange sm:text-xl">
 							Down the Rabbit Hole
 						</h1>
 					</div>
@@ -61,7 +67,7 @@ export default function Footer() {
 						/>
 					</Link>
 				</div>
-				<p className="text-cqYellow col-span-2 self-center justify-self-center text-center font-mono text-xs sm:col-start-2 md:py-0 lg:col-span-3 lg:col-start-2 lg:row-start-2 lg:w-11/12">
+				<p className="col-span-2 self-center justify-self-center text-center font-mono text-xs text-cqYellow sm:col-start-2 md:py-0 lg:col-span-3 lg:col-start-2 lg:row-start-2 lg:w-11/12">
 					Made with &lt;/&gt; &amp; ♥ @ Code Quantum
 					<br />© Code Quantum &amp; Association of Computing
 					Machinery at UTSA 2025. All Rights Reserved.

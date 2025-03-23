@@ -3,6 +3,13 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { cookies } from "next/headers";
 import { Analytics } from "@vercel/analytics/react";
 import { defaultTheme } from "config";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Code Quantum",
+	description: "Code Quantum is a beginner-friendly hackday hosted at UTSA for students from all disciplines.",
+	icons: ["/img/logos/CQFinalLogo.svg"],
+};
 
 export default function RootLayout({
 	children,

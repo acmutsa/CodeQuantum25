@@ -17,7 +17,7 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "../shadcn/ui/accordion";
-import c from "config"
+import c from "config";
 
 export default function FAQ() {
 	const [hoveredIcon, setHoveredIcon] = useState<number | null>(null);

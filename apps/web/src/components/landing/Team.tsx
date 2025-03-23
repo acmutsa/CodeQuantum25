@@ -1,17 +1,23 @@
 "use client";
 import { motion } from "framer-motion";
-import { Crown, Sparkles, LinkedinIcon, GlobeIcon, GithubIcon } from "lucide-react";
+import {
+	Crown,
+	Sparkles,
+	LinkedinIcon,
+	GlobeIcon,
+	GithubIcon,
+} from "lucide-react";
 import Image from "next/image";
 import { Person } from "@/components/landing/Person";
 import { useState, useEffect } from "react";
 
 export default function Team() {
-	const [innerWidth, setInnerWidth] = useState(0)
-	const [innerHeight, setInnerHeight] = useState(0)
+	const [innerWidth, setInnerWidth] = useState(0);
+	const [innerHeight, setInnerHeight] = useState(0);
 	useEffect(() => {
-		setInnerWidth(window.innerWidth)
-		setInnerHeight(window.innerHeight)
-	}, [])
+		setInnerWidth(window.innerWidth);
+		setInnerHeight(window.innerHeight);
+	}, []);
 	const containerVariants = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -20,7 +26,7 @@ export default function Team() {
 				staggerChildren: 0.3,
 			},
 		},
-	}
+	};
 
 	const itemVariants = {
 		hidden: { y: 20, opacity: 0 },
@@ -31,9 +37,10 @@ export default function Team() {
 				duration: 0.5,
 			},
 		},
-	}
+	};
 
-	const imageStyles = "rounded-lg border-4 drop-shadow-md hover:scale-110 duration-75 mb-2"
+	const imageStyles =
+		"rounded-lg border-4 drop-shadow-md hover:scale-110 duration-75 mb-2";
 	const TEAM_COLORS = {
 		DIRECTOR: "#e17d9e",
 		LOGISTICS: "#7b8f76",
@@ -42,7 +49,7 @@ export default function Team() {
 		OUTREACH: "#e1897d",
 		HACKER_EXPERIENCE: "#4f4e6c",
 		PUBLIC_RELATIONS: "#b791cc",
-	}
+	};
 	const directors: Person[] = [
 		{
 			fname: "Iqra",
@@ -50,7 +57,6 @@ export default function Team() {
 			imgLink: "/img/team/Directors/iqra.png",
 			role: "Director",
 			color: TEAM_COLORS.DIRECTOR,
-			
 		},
 		{
 			fname: "Anusha",
@@ -58,9 +64,8 @@ export default function Team() {
 			imgLink: "/img/team/Directors/anusha.png",
 			role: "Co-Director",
 			color: TEAM_COLORS.DIRECTOR,
-			
-		}
-	]
+		},
+	];
 
 	const team: Person[] = [
 		{
@@ -159,7 +164,7 @@ export default function Team() {
 	return (
 		<div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-purple-50 via-pink-50 to-purple-50 py-20">
 			{/* Animated Background Elements */}
-			<div className="absolute inset-0 overflow-hidden -z-10">
+			<div className="absolute inset-0 -z-10 overflow-hidden">
 				{Array.from({ length: 15 }).map((_, i) => (
 					<motion.div
 						key={i}
@@ -168,8 +173,14 @@ export default function Team() {
 						animate={{
 							opacity: [0.2, 0.5, 0.2],
 							scale: [1, 2, 1],
-							x: [Math.random() * innerWidth, Math.random() * innerWidth],
-							y: [Math.random() * innerHeight, Math.random() * innerHeight],
+							x: [
+								Math.random() * innerWidth,
+								Math.random() * innerWidth,
+							],
+							y: [
+								Math.random() * innerHeight,
+								Math.random() * innerHeight,
+							],
 						}}
 						transition={{
 							duration: Math.random() * 10 + 10,
@@ -177,21 +188,24 @@ export default function Team() {
 							delay: Math.random() * 5,
 						}}
 					>
-						<Sparkles className="w-4 h-4 text-purple-300" />
+						<Sparkles className="h-4 w-4 text-purple-300" />
 					</motion.div>
 				))}
 			</div>
 
 			<motion.div
-				className="relative container mx-auto px-4"
+				className="container relative mx-auto px-4"
 				variants={containerVariants}
 				initial="hidden"
 				animate="visible"
 			>
 				{/* Header Section */}
-				<motion.div className="text-center mb-16" variants={itemVariants}>
+				<motion.div
+					className="mb-16 text-center"
+					variants={itemVariants}
+				>
 					<motion.div
-						className="inline-block mb-4"
+						className="mb-4 inline-block"
 						animate={{
 							rotate: [0, 10, -10, 0],
 						}}
@@ -201,39 +215,93 @@ export default function Team() {
 							ease: "easeInOut",
 						}}
 					>
-						<Crown className="w-16 h-16 text-purple-600 mx-auto" />
+						<Crown className="mx-auto h-16 w-16 text-purple-600" />
 					</motion.div>
-					<h2 className="text-4xl md:text-5xl font-bold text-purple-800 mb-6">The Organizing Team</h2>
-					<p className="text-xl text-purple-600 max-w-2xl mx-auto">
+					<h2 className="mb-6 text-4xl font-bold text-purple-800 md:text-5xl">
+						The Organizing Team
+					</h2>
+					<p className="mx-auto max-w-2xl text-xl text-purple-600">
 						See who is behind Code Quantum 25!
 					</p>
 				</motion.div>
 			</motion.div>
 			<div className={"flex justify-center"}>
-				<div className={"grid grid-cols-2 gap-8 sm:mx-2 px-2"}>
-					{directors.map(director => {
+				<div className={"grid grid-cols-2 gap-8 px-2 sm:mx-2"}>
+					{directors.map((director) => {
 						return (
-							<div className={"flex-col justify-center"} key={`${director.fname}-${director.lname}`}>
-								<Image style={{borderColor: director.color}} className={`md:mb-5 ${imageStyles}`} src={director.imgLink} alt={`${director.fname} ${director.lname} image`} width={300} height={300}/>
-								<h2 style={{color: director.color}} className={"text-3xl sm:text-4xl text-center font-bold"}>{director.fname} {director.lname}</h2>
-								<h3 style={{color: director.color}} className={"text-2xl md:text-3xl text-center mb-2 italic font-bold"}>{director.role}</h3>
+							<div
+								className={"flex-col justify-center"}
+								key={`${director.fname}-${director.lname}`}
+							>
+								<Image
+									style={{ borderColor: director.color }}
+									className={`md:mb-5 ${imageStyles}`}
+									src={director.imgLink}
+									alt={`${director.fname} ${director.lname} image`}
+									width={300}
+									height={300}
+								/>
+								<h2
+									style={{ color: director.color }}
+									className={
+										"text-center text-3xl font-bold sm:text-4xl"
+									}
+								>
+									{director.fname} {director.lname}
+								</h2>
+								<h3
+									style={{ color: director.color }}
+									className={
+										"mb-2 text-center text-2xl font-bold italic md:text-3xl"
+									}
+								>
+									{director.role}
+								</h3>
 							</div>
-						)
+						);
 					})}
 				</div>
 			</div>
-			<div className={"flex justify-center items-center mt-4"}>
-				<div className={"grid grid-cols-3 lg:grid-cols-4 gap-8 sm:mx-2 px-2 lg:px-0"}>
-					{team.map(organizer => (
-							<div className={"flex flex-col w-full items-center"} key={`${organizer.fname}-${organizer.lname}`}>
-								<Image style={{borderColor: organizer.color}} className={`${imageStyles}`} src={organizer.imgLink} alt={`${organizer.fname} ${organizer.lname} image`} width={200} height={200} priority/>
-								<h2 style={{color: organizer.color}} className={"text-xl lg:text-3xl text-center font-semibold"}>{organizer.fname} {organizer.lname}</h2>
-								<h3 style={{color: organizer.color}} className={"text-md lg:text-2xl text-center mb-2 italic font-semibold"}>{organizer.role}</h3>
-							</div>
-						)
-					)}
+			<div className={"mt-4 flex items-center justify-center"}>
+				<div
+					className={
+						"grid grid-cols-3 gap-8 px-2 sm:mx-2 lg:grid-cols-4 lg:px-0"
+					}
+				>
+					{team.map((organizer) => (
+						<div
+							className={"flex w-full flex-col items-center"}
+							key={`${organizer.fname}-${organizer.lname}`}
+						>
+							<Image
+								style={{ borderColor: organizer.color }}
+								className={`${imageStyles}`}
+								src={organizer.imgLink}
+								alt={`${organizer.fname} ${organizer.lname} image`}
+								width={200}
+								height={200}
+								priority
+							/>
+							<h2
+								style={{ color: organizer.color }}
+								className={
+									"text-center text-xl font-semibold lg:text-3xl"
+								}
+							>
+								{organizer.fname} {organizer.lname}
+							</h2>
+							<h3
+								style={{ color: organizer.color }}
+								className={
+									"text-md mb-2 text-center font-semibold italic lg:text-2xl"
+								}
+							>
+								{organizer.role}
+							</h3>
+						</div>
+					))}
 				</div>
 			</div>
 		</div>
-	)
+	);
 }

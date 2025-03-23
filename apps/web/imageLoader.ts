@@ -20,10 +20,10 @@ export default function cloudflareLoader({
 		params.push(`quality=${quality}`);
 	}
 	const paramsString = params.join(",");
-  let baseURI = process.env.NEXT_ZONE_URI;
-  if (baseURI != null && baseURI!.endsWith("/")) {
-    baseURI = baseURI.slice(0, -1); 
-  }
+	let baseURI = process.env.NEXT_ZONE_URI;
+	if (baseURI != null && baseURI!.endsWith("/")) {
+		baseURI = baseURI.slice(0, -1);
+	}
 
 	return `https://${baseURI}/cdn-cgi/image/${paramsString}/${normalizeSrc(src)}`;
 }
