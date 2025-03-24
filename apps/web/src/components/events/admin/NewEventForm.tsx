@@ -34,6 +34,7 @@ import { ONE_HOUR_IN_MILLISECONDS } from "@/lib/constants";
 import { NewEventFormProps } from "@/lib/types/events";
 import { newEventFormSchema } from "@/validators/event";
 import { ThreeCircles } from "react-loader-spinner";
+import { toast } from "sonner";
 
 export default function NewEventForm({ defaultDate }: NewEventFormProps) {
 	const [loading, setLoading] = useState(false);
@@ -65,10 +66,10 @@ export default function NewEventForm({ defaultDate }: NewEventFormProps) {
 		});
 		setLoading(false);
 		if (res.success) {
-			alert("Event Created Successfully! Redirecting to event page...");
+			toast.success("Event Created Successfully! Redirecting to event");
 			router.push(res.data.redirect);
 		} else {
-			alert(
+			toast.error(
 				"Failed to create event, please try again. Error:\n\n" +
 					res.error,
 			);

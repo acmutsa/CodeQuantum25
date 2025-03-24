@@ -54,8 +54,12 @@ export default function EditEventForm({
 		onExecute: () => setLoading(true),
 		onSettled: () => setLoading(false),
 		onSuccess: () => {
-			alert("Event Edited Successfully! Redirecting to event page...");
-			router.push("/admin/events");
+			toast.success(
+				"Event Edited Successfully! Redirecting to event page...",
+			);
+			setTimeout(() => {
+				router.push("/admin/events");
+			}, 2000);
 		},
 		onError: ({ error }) => {
 			let description: string;

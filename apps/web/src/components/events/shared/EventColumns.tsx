@@ -121,7 +121,10 @@ export const columns: ColumnDef<EventRow>[] = [
 							</Button>
 						</DropdownMenuTrigger>
 						<DropdownMenuContent align="end">
-							<DropdownMenuItem>
+							<DropdownMenuItem
+								asChild
+								className="h-full w-full cursor-pointer"
+							>
 								<Link
 									href={`/schedule/${data.id}`}
 									className="h-full w-full"
@@ -129,7 +132,10 @@ export const columns: ColumnDef<EventRow>[] = [
 									View
 								</Link>
 							</DropdownMenuItem>
-							<DropdownMenuItem>
+							<DropdownMenuItem
+								asChild
+								className="h-full w-full cursor-pointer"
+							>
 								<Link
 									href={`/admin/scanner/${data.id}`}
 									className="h-full w-full"
@@ -138,7 +144,10 @@ export const columns: ColumnDef<EventRow>[] = [
 								</Link>
 							</DropdownMenuItem>
 							<DropdownMenuSeparator />
-							<DropdownMenuItem>
+							<DropdownMenuItem
+								className="h-full w-full cursor-pointer"
+								asChild
+							>
 								<Link
 									href={`/admin/events/edit/${data.id}`}
 									className="h-full w-full"
@@ -148,7 +157,7 @@ export const columns: ColumnDef<EventRow>[] = [
 							</DropdownMenuItem>
 							<DropdownMenuItem
 								asChild
-								className="h-full w-full text-red-500"
+								className="h-full w-full cursor-pointer text-red-500"
 							>
 								<AlertDialogTrigger>Delete</AlertDialogTrigger>
 							</DropdownMenuItem>
