@@ -25,5 +25,5 @@ export default function cloudflareLoader({
 		baseURI = baseURI.slice(0, -1);
 	}
 
-	return `https://${baseURI}/cdn-cgi/image/${paramsString}/${normalizeSrc(src)}`;
+	return `https://cqhacks.org/cdn-cgi/image/${paramsString}/${normalizeSrc(src)}`;
 }
