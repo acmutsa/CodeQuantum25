@@ -918,7 +918,7 @@ const c = {
 		facebook: "https://facebook.com",
 		twitter: "https://twitter.com",
 		github: "https://github.com/acmutsa",
-		guide: "https://go.cqhacks.org/discord",
+		guide: "https://go.cqhacks.org/guide",
 	},
 	icon: {
 		sm: "/img/logo/CQFinalLogo.svg",
