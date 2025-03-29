@@ -136,7 +136,7 @@ export default function About() {
 								</h3>
 								<p className="text-gray-600">
 									Code Quantum will be hosted on UTSA’s main
-									campus in the Biotechnology Sciences and
+									campus in the Biotechnology, Science and
 									Engineering Building (BSE)
 								</p>
 							</CardContent>

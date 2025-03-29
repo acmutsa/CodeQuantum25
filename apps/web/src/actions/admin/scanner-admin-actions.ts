@@ -83,6 +83,6 @@ export const checkInUserToHackathon = adminAction
 		// Set checkinTimestamp
 		await db
 			.update(userCommonData)
-			.set({ checkinTimestamp: sql`now()` })
+			.set({ checkinTimestamp: sql`(current_timestamp)` })
 			.where(eq(userCommonData.clerkID, userID));
 	});
