@@ -38,7 +38,7 @@ export async function GET() {
 	const reqUserRecord = await getUser(userId);
 	if (
 		!reqUserRecord ||
-		(reqUserRecord.role !== "super_admin" && reqUserRecord.role !== "admin")
+		(reqUserRecord.role !== "super_admin" && reqUserRecord.role !== "admin" && reqUserRecord.role !== "volunteer")
 	) {
 		return new Response("Unauthorized", { status: 401 });
 	}

@@ -95,7 +95,7 @@ export default function UpdateRoleDialog({
 									if (
 										!canMakeAdmins &&
 										(perm === "admin" ||
-											perm === "super_admin")
+											perm === "super_admin" || perm === "volunteer")
 									)
 										return null;
 									return (
