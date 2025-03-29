@@ -12,7 +12,6 @@ const nextConfig = {
 	images: {
 		loader: "custom",
 		loaderFile: "./imageLoader.ts",
-		// unoptimized: true,
 		domains: [
 			"images.clerk.dev",
 			"www.gravatar.com",

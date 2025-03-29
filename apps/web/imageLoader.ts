@@ -1,3 +1,4 @@
+import nextConfig from "./next.config.mjs"
 const normalizeSrc = (src: string) => {
 	return src.startsWith("/") ? src.slice(1) : src;
 };
@@ -11,7 +12,15 @@ export default function cloudflareLoader({
 	width: number;
 	quality?: number;
 }) {
-	if (process.env.NODE_ENV === "development") {
+	if (
+		process.env.NODE_ENV === "development" || [
+			"images.clerk.dev",
+			"www.gravatar.com",
+			"img.clerk.com",
+			"api.dicebear.com",
+			"cdn.discordapp.com",
+		].some((domain) => src.startsWith(domain)) 
+	) {
 		console.log("returning with properties", { src, width, quality });
 		return src;
 	}
@@ -19,6 +28,7 @@ export default function cloudflareLoader({
 	if (quality) {
 		params.push(`quality=${quality}`);
 	}
+	
 	const paramsString = params.join(",");
 	let baseURI = process.env.NEXT_ZONE_URI;
 	if (baseURI != null && baseURI!.endsWith("/")) {
