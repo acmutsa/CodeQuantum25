@@ -19,7 +19,7 @@ export default function cloudflareLoader({
 			"img.clerk.com",
 			"api.dicebear.com",
 			"cdn.discordapp.com",
-		].some((domain) => src.startsWith(domain)) 
+		].some((domain) => src.includes(domain)) 
 	) {
 		console.log("returning with properties", { src, width, quality });
 		return src;
